@@ -11,7 +11,7 @@ When you running server for the first time, you need to install package by using
   npm install 
 ```
 Make sure that you have installed npm.
-### Running command  
+### Starting backend server  
 ```
   npm start
 ```
