@@ -1,11 +1,6 @@
-const Sequelize = require('sequelize')
-const initModels = require('../models/init-models')
-const sequelize = new Sequelize('QLKhachSan', 'duy', '12345678', {
-    host: 'localhost',
-    dialect: 'mysql',
-   });
-const LoaiPhongs = require('../models/LoaiPhongs')
-var models = initModels(sequelize)
+const db = require("../db")
+const models = db.models
+const sequelize = db.sequelize
 class SiteController{
     // [GET] /news
     async index(req,res){
