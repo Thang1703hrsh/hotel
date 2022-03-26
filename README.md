@@ -1,5 +1,8 @@
 # Hotel Project
 # How to use
+## Create database
+Install mysql
+https://www.digitalocean.com/community/tutorials/how-to-install-mysql-on-ubuntu-20-04
 ## Config localhost database (before deployment, for developer only!)  
 ```backend/src/config/db.json```
 filling your database information at localhost!  
