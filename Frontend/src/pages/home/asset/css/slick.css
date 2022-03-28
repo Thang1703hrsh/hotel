@@ -1,0 +1,105 @@
+/* EDIT BUTTON SLIDER */
+.slick-dots li button:before {
+    font-size: 1rem;
+}
+
+.slick-dots li.slick-active button:before {
+    color: #ECD4BB;
+    border-radius: 50%;
+    
+    
+}
+
+.slick-dots {
+    position: relative;
+    top: -40px;
+}
+
+
+.slide-container p
+{
+    display: inline-block;
+    position: absolute;
+    top:0vh;
+    padding-left: 60vw;
+    color: #FCFAF0;
+    font-family: sans-serif;
+    font-size: 50px;
+    z-index: 10;
+}
+
+.slide-container .brand
+{
+    position: absolute;
+    color: #FCFAF0;
+    top:18vh    ;
+    padding-left: 60vw;
+    font-size: 3rem;
+    z-index: 10;
+}
+
+.slide-container .dis-btn
+{
+    background-color: #ECD4BB;
+    position: absolute;
+    top: 40vh;
+    margin-left: 60vw;
+    color: #FCFAF0;
+    font-size: 1.5rem;
+    z-index: 10;
+}
+
+.slide-container .img-slider
+{
+    filter: brightness(70%);
+
+}
+@media (max-width: 600px) {
+    
+
+    .slide-container p
+    {
+        top: -2vh;
+        font-size: 2rem;
+    }
+    .slide-container .brand
+    {
+        top: 8vh;
+        font-size: 2rem;
+    }
+    .slide-container img
+    {
+        width: 100%;
+    }
+    .slide-container .dis-btn
+    {
+        
+        top: 15vh;
+        font-size: 0.8rem;
+    }
+  }
+
+  @media (max-width: 400px) {
+    
+
+    .slide-container p
+    {
+        top: 0vh;
+        font-size: 16px;
+    }
+    .slide-container .brand
+    {
+        top: 4vh;
+        font-size: 16px;
+    }
+    .slide-container img
+    {
+        width: 100%;
+    }
+    .slide-container .dis-btn
+    {
+        
+        top: 8vh;
+        font-size: 0.4rem;
+    }
+  }
