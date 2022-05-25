@@ -12,7 +12,8 @@ module.exports = function(sequelize, DataTypes) {
     },
     SLToida: {
       type: DataTypes.INTEGER,
-      allowNull: true
+      allowNull: true,
+      defaultValue: 3
     }
   }, {
     sequelize,

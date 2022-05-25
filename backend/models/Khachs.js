@@ -17,6 +17,14 @@ module.exports = function(sequelize, DataTypes) {
         model: 'LoaiKhachs',
         key: 'id'
       }
+    },
+    idQuanLy: {
+      type: DataTypes.STRING(15),
+      allowNull: true,
+      references: {
+        model: 'Khachs',
+        key: 'id'
+      }
     }
   }, {
     sequelize,
@@ -36,6 +44,13 @@ module.exports = function(sequelize, DataTypes) {
         using: "BTREE",
         fields: [
           { name: "LoaiKhach" },
+        ]
+      },
+      {
+        name: "FK_Khachs_Khachs",
+        using: "BTREE",
+        fields: [
+          { name: "idQuanLy" },
         ]
       },
     ]

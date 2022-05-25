@@ -1,26 +1,26 @@
 const Sequelize = require('sequelize');
 module.exports = function(sequelize, DataTypes) {
-  return sequelize.define('Phongs', {
+  return sequelize.define('Accounts', {
     id: {
-      type: DataTypes.STRING(10),
+      type: DataTypes.STRING(15),
       allowNull: false,
       primaryKey: true
     },
-    LoaiPhong: {
-      type: DataTypes.CHAR(1),
+    CMNDKhach: {
+      type: DataTypes.STRING(15),
       allowNull: true,
       references: {
-        model: 'LoaiPhongs',
+        model: 'Khachs',
         key: 'id'
       }
     },
-    GhiChu: {
-      type: DataTypes.STRING(50),
+    _password: {
+      type: DataTypes.STRING(15),
       allowNull: true
     }
   }, {
     sequelize,
-    tableName: 'Phongs',
+    tableName: 'Accounts',
     timestamps: true,
     indexes: [
       {
@@ -32,10 +32,10 @@ module.exports = function(sequelize, DataTypes) {
         ]
       },
       {
-        name: "FK_Phong_LoaiPhong",
+        name: "FK_Acounts_Khachs",
         using: "BTREE",
         fields: [
-          { name: "LoaiPhong" },
+          { name: "CMNDKhach" },
         ]
       },
     ]

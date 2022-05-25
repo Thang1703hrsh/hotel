@@ -1,13 +1,13 @@
 const Sequelize = require('sequelize');
 module.exports = function(sequelize, DataTypes) {
-  return sequelize.define('hesophu', {
+  return sequelize.define('ThamSo', {
     heso: {
       type: DataTypes.FLOAT,
       allowNull: true
     }
   }, {
     sequelize,
-    tableName: 'hesophu',
-    timestamps: false
+    tableName: 'ThamSo',
+    timestamps: true
   });
 };
