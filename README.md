@@ -43,3 +43,8 @@ At project folder, run server :
   npm run server
 ```
 ### Start front-end server
+```
+cd frontend
+npm install (to install all dependencies required if necessary)
+npm start
+```
