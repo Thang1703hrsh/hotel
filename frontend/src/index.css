@@ -1,0 +1,18 @@
+*{
+  
+  font-family: sans-serif!important;
+}
+
+body {
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-family:'Be Vietnam Pro', sans-serif;
+}
+html
+{
+  font-family:'Be Vietnam Pro', sans-serif;
+}
+code {
+  font-family:'Be Vietnam Pro', sans-serif;
+}

@@ -1,0 +1,8 @@
+backend/node_modules/
+
+backend/.vscode/
+
+backend/src/public/css/
+
+backend/src/config/db.json
+node_modules
