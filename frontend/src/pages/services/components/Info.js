@@ -36,7 +36,7 @@ const Contents = [
     {
         name: "Call Us 24/7",
         image: Phone,
-        content: "You can contact with us anytime by hotline: 0123456789 for your needs."
+        content: "You can contact with us anytime by hotline: 0986930777 for your needs."
     }
 ]
 
