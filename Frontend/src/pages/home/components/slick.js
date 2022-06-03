@@ -1,58 +1,69 @@
+import React, { Component } from 'react'
+import Typewriter from 'typewriter-effect';
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
-import React, { Component } from "react";
-import Slider from "react-slick";
-import Button from '@mui/material/Button';
-import Typography from '@mui/material/Typography';
+import '../asset/css/slick.scss';
 import {
   Link
 } from "react-router-dom";
-import '../asset/css/slick.css';
+import Button from '@mui/material/Button';
 
-const photo =[
-  {
-    name: 'photo 1',
-    src: 'https://i.ibb.co/Xj3P9Gw/ICSaigon-Frontpage.jpg'
-  },
-  {
-    name: 'photo 2',
-    src: 'https://i.ibb.co/G0NcNB2/Inter-Continental-Saigon-Hotel-Lobby-0.jpg'
-  },
-  {
-    name: 'photo 3',
-    src: 'https://i.ibb.co/Mg9m9cc/ICSaigon-Frontpage-03-0.jpg'
-  }
+
+const data = [
+  {title:"5 Star Ratings",url:"https://i.ibb.co/7Vd7LZQ/favpng-hotel-malta-palace-5-star.png"},
 ]
 
-
 export default class SimpleSlider extends Component {
-  render() {
-    const settings = {
-      dots: true,
-      infinite: true,
-      speed: 600,
-      slidesToShow: 1,
-      slidesToScroll: 1,
-      className: "slides"
-    };
-    return (
-      <div >
-        <Slider {...settings}>
-        
-        {photo.map((photo) => {
-          return(
-            <div className="slide-container" >
-              <p><span>-</span> Welcome <span>-</span></p>
-              <Typography className="brand">BK Luxury Hotel</Typography>
-              <Button className="dis-btn" style={{backgroundColor: "#ECD4BB"}} variant="text" component={Link} to={'/rooms'}>Discover Now</Button>
-             
-              <img height="100%" src={photo.src} className="img-slider" alt=''></img>
+    render() {
+      return (
+    <header class="header">
+
+    <div class="header__text-box">
+      <h1 >
+      The Perfect Base For You
+      </h1>
+      <p> 
+        <Typewriter
+      options={{
+    strings: ['Unique Place To Relax And Enjoy', ' Connecting People'],
+    autoStart: true,
+    loop: true,
+    }}
+    onInit={(typewriter) => {
+    typewriter.typeString()
+      .callFunction(() => {
+        console.log('String typed out!');
+      })
+      .pauseFor(1000)
+      .deleteAll()
+      .callFunction(() => {
+        console.log('All strings were deleted');
+      })
+      .start();
+    }}
+    />
+    </p>
+    
+    <Button className="header__text-box-inputContainer" sx={{ color: 'white', borderColor: 'white' }} variant="outlined" component={Link} to={'/rooms'}>
+      Discover Now
+    </Button>
+    
+    <div>
+
+    <div className="header__text-box-card_container">
+            <div className="header__text-box-card_container--inner">
+            {data.map((item,index) =>{return(
+                    <div key={index} className="header__text-box-card_container--inner-card">
+                        <img src={item.url} alt="item"/>
+                        <h1>The Ultimate Luxury Hotel</h1>
+                    </div>
+                )})}
+                </div>
+              
             </div>
-          )
-        } )}
-          
-        </Slider>
+        </div>
       </div>
-    );
-  }
+    </header>
+        )
+    }
 }

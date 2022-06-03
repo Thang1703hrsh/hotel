@@ -5,6 +5,7 @@ import ServiceRoom from './components/service-grid';
 import FeatureRoom from './components/feature-room';
 import SocialGallery from './components/social-gallery';
 
+
 export default function Home(){
     return (
         <div className="container">
@@ -12,16 +13,22 @@ export default function Home(){
           <div className='slider' style={{marginTop: '64px'}} >
             <SimpleSlider />  
           </div>
-          
+          <br /><br /><br /><br />
+      
           <div className="Description">
-            <Box sx={{ width: '100%', maxWidth: "100%", alignItems: "center", backgroundColor: "#FCFAF0", }}>
-              <Typography variant="h3" gutterBottom component="div" textAlign="center" >
-                BK LUXURY HOTEL
+            <Box sx={{ width: '100%', maxWidth: "100%", alignItems: "center", backgroundColor: "transparent", }}>
+              <Typography variant="h3" gutterBottom component="div" textAlign="center" sx={{textDecoration: 'underline'}} display="inline">
+                WELCOME TO HCMUS HOTEL
               </Typography>
+              <br/><br/>
               <Typography variant="body1" gutterBottom textAlign="center">
-                As the luxury landmark in the heart of Ho Chi Minh City's buzzing Central Business District, InterContinental Saigon Hotel & Residences presents the most iconic historical destinations like Notre Dame Cathedral, Saigon Opera House with just a few steps away. Here we celebrate Saigon's multicultural roots, giving leisure and business travellers a look at the French colonial buildings set alongside sleek, modern skyscrapers, all interspersed with vibrant Vietnamese culture.
+                HCMUS Hotel is the first international hotel in Ho Chi Minh. 
+                <br/>As the luxury landmark in the heart of Ho Chi Minh City's buzzing Central Business District. 
+                <br/>The centrally-located hotel is the perfect place for business or leisure stay. 
+                <br/>Luxurious accommodations are elegantly furnished and equipped with a wide range of high-end amenities. 
+                <br/>Hanoi Hotel is renowned for its complete arena of evening entertainments and finest Chinese cuisine in the city. 
+                <br/>Your stay with us is guaranteed to be a pleasant and the most memorable one.
                 <br/>
-                Recognised as Vietnam's Leading Hotel in 2020, InterContinental Saigon Hotel & Residences has been proven to be the stylish choice for international business leaders and discerning travellers who value classic elegance with a contemporary spirit.
               </Typography>
             </Box>
           </div>

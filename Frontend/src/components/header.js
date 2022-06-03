@@ -7,15 +7,11 @@ import {
   Typography,
   useMediaQuery,
   Button,
-  useScrollTrigger,
-  Slide,
   Menu,
   MenuItem,
-  ListItemIcon
+  ListItemIcon,
 } from "@material-ui/core";
-import {
-  Link
-} from "react-router-dom";
+import { Link } from "react-router-dom";
 import { makeStyles, useTheme } from "@material-ui/core/styles";
 import Cookies from 'js-cookie';
 
@@ -28,6 +24,8 @@ import ApartmentIcon from '@mui/icons-material/Apartment';
 import RoomServiceIcon from '@mui/icons-material/RoomService';
 import LockOpenIcon from '@mui/icons-material/LockOpen';
 import BookmarkAddedIcon from '@mui/icons-material/BookmarkAdded';
+import VillaIcon from '@mui/icons-material/Villa';
+import PhoneInTalkIcon from '@mui/icons-material/PhoneInTalk';
 
 // REACT APP IMPORTS
 
@@ -56,37 +54,38 @@ const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
   },
+  phoneButton: {
+    color: '#FCFAF0',
+    marginRight: '3rem',
+    fontFamily: 'Arial',
+    fontSize: 16,
+  },
   menuButton: {
-    marginRight: theme.spacing(2)
+    marginRight: theme.spacing(2),
+    color: '#FCFAF0',
   },
   title: {
     flexGrow: 1 ,
-    color: '#1A1810',
+    color: '#FCFAF0',
     textAlign: 'left',
+    fontFamily: 'Chilanka',
     textDecoration: 'none',
     "&:hover": {
       color: '#A77B5A'
     }
   },
-  buttonMenu:
-  {
-      padding: '0 2vw',
-      "&:hover": {
-        color: '#A77B5A'
-      }
+  appBarTransparent:{
+    backgroundColor: '#0f1e4d',
+  },
+  icon: {
+    color: 'white',
+  },
+  notchedOutline: {
+    borderWidth: "2px",
+    borderColor: "white !important",
+    color: '#FCFAF0',
   }
 }));
-
-function HideOnScroll(props) {
-  const { children } = props;
-  const trigger = useScrollTrigger();
-
-  return (
-    <Slide appear={false} direction={"down"} in={!trigger}>
-      {children}
-    </Slide>
-  );
-}
 
 const Header = (props) => {
   const classes = useStyles();
@@ -105,218 +104,206 @@ const Header = (props) => {
   }
   return (
     <div className={classes.root}>
-      <HideOnScroll {...props}>
-    
-          <AppBar>
-            <Toolbar style={{backgroundColor: '#FCFAF0'}}>
-             
-                <Typography component={Link} to={"/"}
-                  variant="h5"
-                  
-                  className={classes.title}
-                >
-                      BKLuxury<span style={{color:'#A77B5A'}}>Hotel</span>
-                </Typography>
-              
-              {isMobile ? (
-                <>
-                  <IconButton
-                    color="textPrimary"
-                    className={classes.menuButton}
-                    edge="start"
-                    aria-label="menu"
-                    onClick={handleMenu}
-                  >
-                    <MenuIcon />
-                  </IconButton>
-                  <Menu
-                    id="menu-appbar"
-                    anchorEl={anchor}
-                    anchorOrigin={{
-                      vertical: "top",
-                      horizontal: "right"
-                    }}
-                    KeepMounted
-                    transformOrigin={{
-                      vertical: "top",
-                      horizontal: "right"
-                    }}
-                    open={open}
-                  >
-                    
-                      <MenuItem component={Link} to={"/"}
-                        onClick={() => setAnchor(null)}
-                        
-                      >
-                        <ListItemIcon>
-                          <HomeIcon fontSize='large'/>
-                        </ListItemIcon>
-                        <Typography variant="h6"> Home</Typography>
-                      </MenuItem> 
-                    
-                    
-                      <MenuItem component={Link} to={'/rooms'}
-                        onClick={() => setAnchor(null)}
-                      >
-                        <ListItemIcon>
-                          <ApartmentIcon fontSize='large'/>
-                        </ListItemIcon>
-                        <Typography variant="h6"> Rooms </Typography>
-                      </MenuItem>
-                    
-                  
-                      <MenuItem component={Link} to={'/services'}
-                        onClick={() => setAnchor(null)}
-                        
-                        
-                      >
-                        <ListItemIcon>
-                          <RoomServiceIcon fontSize='large'/>
-                        </ListItemIcon>
-                        <Typography variant="h6"> Service</Typography>
-                      </MenuItem>
-                    
-                      { isLogin ?
-                        <MenuItem
-                          onClick={() => setAnchor(null)}
-                          onClick={() => handleSignOut()}
-                        >
-                          <ListItemIcon>
-                            <LockOpenIcon fontSize="large"/>
-                          </ListItemIcon>
-                          <Typography variant="h6"> Sign out </Typography>
-                        </MenuItem> 
+      <AppBar position = "fixed" className= {classes.appBarTransparent}>
+        <Toolbar >
+            <ListItemIcon className={classes.icon}>
+                <VillaIcon fontSize='large'/>
+            </ListItemIcon>
+            <Typography component={Link} to={"/"} variant="h4" className={classes.title}>
+                Hotel
+            </Typography>
 
-                      :  
-                        <MenuItem component={Link} to={'/signin'}
-                            onClick={() => setAnchor(null)}
-                          >
-                            <ListItemIcon>
-                              <LockOpenIcon fontSize="large"/>
-                            </ListItemIcon>
-                            <Typography variant="h6"> Sign in </Typography>
-                          </MenuItem> }
-                      
+            {/* <Button className={classes.phoneButton} style={{ marginRight: "30rem" }}>
+              <ListItemIcon className={classes.icon}>
+                <PhoneInTalkIcon/>
+              </ListItemIcon>
+              +84986930777
+            </Button> */}
+
+
+          {isMobile ? (
+            <>
+              <IconButton
+                color="textPrimary"
+                className={classes.menuButton}
+                edge="start"
+                aria-label="menu"
+                onClick={handleMenu}
+              >
+                <MenuIcon />
+              </IconButton>
+              <Menu
+                id="menu-appbar"
+                anchorEl={anchor}
+                anchorOrigin={{
+                  vertical: "top",
+                  horizontal: "right"
+                }}
+                KeepMounted
+                transformOrigin={{
+                  vertical: "top",
+                  horizontal: "right"
+                }}
+                open={open}
+              >
+                
+                  <MenuItem component={Link} to={"/"}
+                    onClick={() => setAnchor(null)}
+                    
+                  >
+                    <ListItemIcon>
+                      <HomeIcon fontSize='large'/>
+                    </ListItemIcon>
+                    <Typography variant="h6"> Home</Typography>
+                  </MenuItem> 
+                
+                
+                  <MenuItem component={Link} to={'/rooms'}
+                    onClick={() => setAnchor(null)}
+                  >
+                    <ListItemIcon>
+                      <ApartmentIcon fontSize='large'/>
+                    </ListItemIcon>
+                    <Typography variant="h6"> Rooms </Typography>
+                  </MenuItem>
+                
+              
+                  <MenuItem component={Link} to={'/services'}
+                    onClick={() => setAnchor(null)}
                     
                     
-                    <MenuItem component={Link} to={'/booking'}
+                  >
+                    <ListItemIcon>
+                      <RoomServiceIcon fontSize='large'/>
+                    </ListItemIcon>
+                    <Typography variant="h6"> Service</Typography>
+                  </MenuItem>
+                
+                  { isLogin ?
+                    <MenuItem
                       onClick={() => setAnchor(null)}
-                       
-                      
+                      onClick={() => handleSignOut()}
                     >
                       <ListItemIcon>
-                        <BookmarkAddedIcon fontSize="large"/>
+                        <LockOpenIcon fontSize="large"/>
                       </ListItemIcon>
-                      <Typography variant="h6"> Booking </Typography>
-                    </MenuItem>
-                    
-                  </Menu>
-                </>
-              ) : (
-                <div style={{ marginRight: "4rem" }}>
-                 
-                    <Button className={classes.buttonMenu}
-                      variant="text"
-                      component={Link} to={'/'}
-                      
-                      color="default"
-                    >
-                      Home
-                    </Button>
+                      <Typography variant="h6"> Sign out </Typography>
+                    </MenuItem> 
+
+                  :  
+                    <MenuItem component={Link} to={'/signin'}
+                        onClick={() => setAnchor(null)}
+                      >
+                        <ListItemIcon>
+                          <LockOpenIcon fontSize="large"/>
+                        </ListItemIcon>
+                        <Typography variant="h6"> Sign in </Typography>
+                      </MenuItem> }
+                  
                 
-                  
-                    <Button className={classes.buttonMenu}
-                      variant="text"
-                      component={Link} to={'/rooms'}
-                      
-                      color="default"
-                    >
-                      
-                      Rooms
-                    </Button>
-                 
-                  
-                    <Button className={classes.buttonMenu}
-                      variant="text"
-                      component={Link} to={'/services'}
-                      
-                      color="default"
-                    >
-                      
-                      Services
-                    </Button>
-
-                    {isAdmin && <Button className={classes.buttonMenu}
-                      variant="text"
-                      component={Link} to={'/adminAccount'}
-                      color="default"
-                    >
-                      Manage Accounts
-                    </Button>}
-
-                    {isAdmin && <Button className={classes.buttonMenu}
-                      variant="text"
-                      component={Link} to={'/adminRoom'}
-                      color="default"
-                    >
-                      Manage Rooms
-                    </Button>}
-                  
-                    {isAdmin? <Button className={classes.buttonMenu}
-                      variant="text"
-                      component={Link} to={'/adminBooking'}
-                      color="default"
-                    >
-                      Manage Booking
-                    </Button>
-                    : <Button className={classes.buttonMenu}
-                    variant="text"
-                    component={Link} to={'/booking'}
+                
+                <MenuItem component={Link} to={'/booking'}
+                  onClick={() => setAnchor(null)}
                     
-                    color="default"
-                  >
-                    Booking
-                  </Button>
-                  }
+                  
+                >
+                  <ListItemIcon>
+                    <BookmarkAddedIcon fontSize="large"/>
+                  </ListItemIcon>
+                  <Typography variant="h6"> Booking </Typography>
+                </MenuItem>
+                
+                
+              </Menu>
+            </>
+          ) : (
+            <div style={{ marginRight: "6rem" }}>
+              
+                <Button
+                  className={classes.phoneButton}
+                  component={Link} to={'/'}
+                >
+                  Home
+                </Button>
 
-                  {isLogin && <Button className={classes.buttonMenu}
-                      variant="text"
-                      component={Link} to={'/account'}
-                      color="default"
-                    >
-                      My Account
-                    </Button>
-                  }
-                  
-                  
-                    {isLogin ?
-                    <Button className={classes.buttonMenu}
-                    variant="text"
-                    onClick={() => handleSignOut()}
-                    color="default"
-                    >
-                      Sign Out
-                    </Button>
+                <Button
+                  className={classes.phoneButton}
+                  component={Link} to={'/rooms'}
+                >
+                  Rooms
+                </Button>
 
-                    :  <Button className={classes.buttonMenu}
-                      variant="text"
-                      component={Link} to={'/signin'}
-                      color="default"
-                    >
-                      
-                      Sign in
-                    </Button>}
-                 
+                <Button
+                  component={Link} to={'/services'}
+                  className={classes.phoneButton}
+                >
+                  Services
+                </Button>
+
+                {isAdmin && <Button
+                  className={classes.phoneButton}
+                  component={Link} to={'/adminAccount'}
+                >
+                  Manage Accounts
+                </Button>}
+
+                {isAdmin && <Button
+                  className={classes.phoneButton}
+                  component={Link} to={'/adminRoom'}
+                >
+                  Manage Rooms
+                </Button>}
+              
+                {isAdmin? <Button 
+                  className={classes.phoneButton}
+                  component={Link} to={'/adminBooking'}
+                >
+                  Manage Booking
+                </Button>
+                : <Button
+                className={classes.phoneButton}
+                component={Link} to={'/booking'}
+              >
+                Booking
+              </Button>
+              }
+
+              {isLogin && <Button
+                  className={classes.phoneButton}
+                  component={Link} to={'/account'}
+                >
+                  My Account
+                </Button>
+              }
+              
+              
+                {isLogin ?
+                <Button
+                className={classes.notchedOutline}
+                variant="outlined"
+                onClick={() => handleSignOut()}
+                size = "large"
+                >
+                  Sign Out
+                </Button>
+
+                :  <Button 
+                  className={classes.notchedOutline}
+                  variant="outlined"
+                  component={Link} to={'/signin'}
+                  size = "large"
+                >
                   
-                      
-                 
-                </div>
-              )}
-            </Toolbar>
-          </AppBar>
-        
-        
-      </HideOnScroll>
+                  Sign in
+                </Button>}
+              
+              
+                  
+              
+            </div>
+          )}
+        </Toolbar>
+      </AppBar>
     </div>
   );
 };
