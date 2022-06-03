@@ -5,6 +5,8 @@ import {
     Redirect
 } from 'react-router-dom';
 
+import SignIn from './signIn/SignIn';
+import SignUp from './signIn/SignUp'
 import Home from './home/Home';
 import AllRooms from './rooms/AllRooms';
 import Footer from '../components/footer';
@@ -18,7 +20,6 @@ import SuperiorRoom from "./rooms/SuperiorRoom";
 import ScrollToTop from "./rooms/ScrollToTop";
 var isLogin = Cookies.get('id');
 var isAdmin = Cookies.get('isAdmin');
-
 
 // Condition for authentication
 if(isLogin) {
@@ -107,6 +108,8 @@ export default function Routes(){
      
         <Switch>   
           <ProtectedRoute exact path="/rooms" component={AllRooms} />
+          <ProtectedRoute exact path="/signup" component={SignUp} />
+          <ProtectedRoute exact path="/signin" component={SignIn} />
           <ProtectedRoute exact path ="/ClubRoom" component = {ClubRoom} />
           <ProtectedRoute exact path ="/DeluxeRoom" component = {DeluxeRoom} />
           <ProtectedRoute exact path ="/SuperiorRoom" component = {SuperiorRoom} />
