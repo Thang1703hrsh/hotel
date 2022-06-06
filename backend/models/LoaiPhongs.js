@@ -14,6 +14,10 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.INTEGER,
       allowNull: true
     },
+    image: {
+      type: DataTypes.STRING(256),
+      allowNull: true
+    },
     SLToida: {
       type: DataTypes.INTEGER,
       allowNull: true,
