@@ -22,6 +22,15 @@ const register = asyncHandler(async (req, res) => {
         res.status(400)
         throw new Error('Account already exists')
     }
+    const khach = await models.Khachs.findOne({
+        where: {
+            id:cmndcmnd
+        }
+    })
+    if(khach){
+        res.status(400)
+        throw new Error('CMND already exists')
+    }
     // Hash password
     const salt = await bcrypt.genSalt(10)
     const hashedPassword = await bcrypt.hash(password, salt)
@@ -33,7 +42,13 @@ const register = asyncHandler(async (req, res) => {
         id,
         _password:hashedPassword,
         cmnd:cmnd,
-        country:country,
+    })
+    //Create Khach
+    const newKhach = await models.Khachs.create({
+        cmnd:id,
+        country:DiaChi,
+        DiaChi:country,
+
     })
     // Create token
     const token = jwt.sign({ id: newAccount.id }, process.env.JWT_SECRET, {
