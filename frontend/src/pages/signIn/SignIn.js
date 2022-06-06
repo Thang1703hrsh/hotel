@@ -15,8 +15,6 @@ import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import LoginIcon from '@mui/icons-material/Login';
-import { redirect } from 'express/lib/response';
-
 
 const instance = axios.create({baseURL: 'http://localhost:5000'})
 
@@ -58,21 +56,19 @@ export default function SignIn() {
             id: values.id,
             password: values.password
           }
-          instance.post('/api/users/login',  input  , {
+          instance.post('/api/users/login',  input , {
             //withCredentials: true,
           })
           .then((response) => {
-              console.log("This is the step that the browser is going to send the request onto localhost:5000")
-            if (response.data) {
-                console.log(response.data);
+            if (response.data){
+              
+              localStorage.setItem("token", response.data.token)
+              alert(  "Succesfully signed in as user: " + response.data.Account.id );
+              window.location.href = "/"
               //window.location.reload();
-              //localStorage.setItem("token", response.data.token)
-              //localStorage.setItem("account", response.data.Account.id)
-              //window.location.href = "/";
             }
           })
           .catch((error) => {
-              console.log(error)
               alert('Email or password is incorrect!')
           });
         }

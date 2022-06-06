@@ -43,7 +43,7 @@ export default function RoomInfo(props) {
         )
         .then(res => {
             console.log(res);
-            console.log("1");
+            console.log("This fucking code is broken");
             setRoom(res.data);
         })
         .catch(error => alert("Cannot load room"))
