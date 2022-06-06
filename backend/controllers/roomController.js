@@ -31,7 +31,12 @@ const  getAll= asyncHandler(async (req, res) => {
 // @ route GET /api/rooms/available
 // @ access Public
 const getAvailable = asyncHandler(async (req, res) => {
-    data = await sequelize.query("select * from Phongs where Phongs.id not in ( SELECT Phongs.id FROM Phongs left join DonDatPhongs on Phongs.id=DonDatPhongs.idPhong WHERE ngayKT>=CURDATE());")
+    data = await sequelize.query("select * from Phongs where Phongs.id not in ( SELECT Phongs.id FROM Phongs left join DonDatPhongs on Phongs.id=DonDatPhongs.idPhong WHERE ngayKT>=CURDATE());",
+        {
+            type: sequelize.QueryTypes.SELECT,
+            mapToModel: true,
+        }
+    )
     res.status(200).json(data)
 })
 module.exports = {
