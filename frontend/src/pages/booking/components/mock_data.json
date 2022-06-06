@@ -1,0 +1,58 @@
+[
+    {
+        "id": "1",
+        "name": "Club King Room",
+        "type": "club",
+        "price": 103,
+        "image": "https://www.icsaigon.com/sites/icsaigon/files/styles/feature_photo_rec/public/2021-06/Club%20InterContinental_0.png?itok=Xq-9I3vA",
+        "info": "Perfect choice for discerning travelers who are seeking exclusive privileges with free wifi access, iPod deck, espresso machine, private check in, breakfast, all day refreshments and evening cocktails in our spacious and chic Club InterContinental Lounge at InterContinental Saigon Hotel. Non smoking rooms only. "
+    },
+    {
+        "id": "1",
+        "name": "Club Twin Room",
+        "type": "club",
+        "price": 113,
+        "image": "https://www.icsaigon.com/sites/icsaigon/files/styles/feature_photo_rec/public/2021-11/Twin%20Bed%20Classic%20Club.jpg?itok=KJLIUAEo",
+        "info": "These premium rooms are part of the Club InterContinental experience, designed to make sure your needs are taken care of, from check-in to the moment you leave. Ideal for both short and long stays, business travelers will enjoy exclusive privileges such as free wifi access, iPod deck, espresso machine, private check in, breakfast, all day refreshments and evening cocktails in our spacious and chic Club InterContinental Lounge at InterContinental Saigon Hotel. Non smoking rooms only. "
+    },
+    {
+        "id": "2",
+        "name": "Superior King Deluxe",
+        "type": "superior",
+        "price": 203,
+        "image": "https://www.icsaigon.com/sites/icsaigon/files/styles/feature_photo_rec/public/2018-03/Superior%20King%20Deluxe.jpg?itok=AUphhC8F",
+        "info": "Our spacious and elegant rooms at InterContinental Saigon Hotel provide more than just comfortable accommodation with complimentary high speed internet as well as panoramic view to the tree-lined streets next to Notre Dame Cathedral. Non smoking rooms only. "
+    },
+    {
+        "id": "3",
+        "name": "Superior Twin Deluxe",
+        "type": "superior",
+        "price": 213,
+        "image": "https://www.icsaigon.com/sites/icsaigon/files/styles/feature_photo_rec/public/2021-11/Twin%20Bed%20Classic%20Cathedral%20View.JPG?itok=AMtwosJ0",
+        "info": "Have a restful stay in our superior rooms at InterContinental Saigon Hotel offering terrific views over Saigon streets and featuring elegant interiors with modern flair and smart technology such as flat screen TVs. Take care of business with high-speed Internet or Wi-Fi available for a charge in your separate work corner. Non smoking rooms only. "
+    },
+    {
+        "id": "4",
+        "name": "Deluxe King Room",
+        "type": "deluxe",
+        "price": 303,
+        "image": "https://www.icsaigon.com/sites/icsaigon/files/styles/feature_photo_rec/public/2021-06/Deluxe%20King%20InterContinental%20Saigon_0.png?itok=EiXRf8iH",
+        "info": "Enjoy fantastic views with floor to ceiling windows and treat yourself to the premier Saigon city life! InterContinental Saigon Hotel designed to capture the essence of both classical and contemporary essence of Vietnam. Non smoking rooms only. "
+    },
+    {
+        "id": "5",
+        "name": "Deluxe Twin Room",
+        "type": "deluxe",
+        "price": 313,
+        "image": "https://www.icsaigon.com/sites/icsaigon/files/styles/feature_photo_rec/public/2021-06/Deluxe%20Twin%20InterContinental%20Saigon.png?itok=xY7SAm8k",
+        "info": "Looking out across magnificent panoramic view of Saigon skyline. Relax in the comfort of this spacious 38sqm twin bed room at InterContinental Saigon Hotel offering floor to ceiling windows, high speed internet, separate bath and shower, safe box, mini bar and more. Non smoking rooms only. "
+    },
+    {
+        "id": "6",
+        "name": "Deluxe Corner King Room",
+        "type": "deluxe",
+        "price": 323,
+        "image": "https://www.icsaigon.com/sites/icsaigon/files/styles/feature_photo_rec/public/2021-11/King%20Bed%20Classic%20Accessible_0.jpg?itok=9ZwttAHj",
+        "info": "Experience Saigon life in our spacious corner rooms that unveil both the colonial and modern day views of this vibrant city. Together with warm decor and abundant natural light from our signature floor to ceiling windows, our 39sqm rooms at InterContinental Saigon Hotel offer diverse media solution and well appointed amenities. Non smoking rooms only. "
+    }
+]

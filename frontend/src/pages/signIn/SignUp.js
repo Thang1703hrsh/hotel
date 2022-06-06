@@ -11,7 +11,7 @@ import Button from '@mui/material/Button';
 import LoginIcon from '@mui/icons-material/Login';
 import {Link} from '@material-ui/core';
 
-
+const instance = axios.create({baseURL: 'http://localhost:5000'})
 
 const initialFValues = {
     id: '',
@@ -62,7 +62,7 @@ export default function SignUp() {
     const handleSubmit = e => {
         e.preventDefault()
         if (validate()){
-            axios.post('/api/users/', {
+            instance.post('/api/users/', {
                 id: values.id,
                 password: values.password,
                 cmnd: values.cmnd,
