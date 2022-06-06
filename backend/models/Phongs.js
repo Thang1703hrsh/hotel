@@ -2,12 +2,12 @@ const Sequelize = require('sequelize');
 module.exports = function(sequelize, DataTypes) {
   return sequelize.define('Phongs', {
     id: {
-      type: DataTypes.STRING(10),
+      type: DataTypes.INTEGER,
       allowNull: false,
       primaryKey: true
     },
-    LoaiPhong: {
-      type: DataTypes.CHAR(1),
+    idLoaiPhong: {
+      type: DataTypes.INTEGER,
       allowNull: true,
       references: {
         model: 'LoaiPhongs',
@@ -15,7 +15,7 @@ module.exports = function(sequelize, DataTypes) {
       }
     },
     GhiChu: {
-      type: DataTypes.STRING(50),
+      type: DataTypes.STRING(1000),
       allowNull: true
     }
   }, {
@@ -35,7 +35,7 @@ module.exports = function(sequelize, DataTypes) {
         name: "FK_Phongs_LoaiPhongs",
         using: "BTREE",
         fields: [
-          { name: "LoaiPhong" },
+          { name: "idLoaiPhong" },
         ]
       },
     ]

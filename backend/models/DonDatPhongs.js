@@ -16,7 +16,7 @@ module.exports = function(sequelize, DataTypes) {
       }
     },
     idPhong: {
-      type: DataTypes.STRING(10),
+      type: DataTypes.INTEGER,
       allowNull: true,
       references: {
         model: 'Phongs',

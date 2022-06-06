@@ -6,7 +6,7 @@ var _LoaiKhachs = require("./LoaiKhachs");
 var _LoaiPhongs = require("./LoaiPhongs");
 var _Phongs = require("./Phongs");
 var _SuDungs = require("./SuDungs");
-var _ThamSo = require("./ThamSo");
+var _hesophu = require("./hesophu");
 
 function initModels(sequelize) {
   var Accounts = _Accounts(sequelize, DataTypes);
@@ -16,24 +16,18 @@ function initModels(sequelize) {
   var LoaiPhongs = _LoaiPhongs(sequelize, DataTypes);
   var Phongs = _Phongs(sequelize, DataTypes);
   var SuDungs = _SuDungs(sequelize, DataTypes);
-  var ThamSo = _ThamSo(sequelize, DataTypes);
+  var hesophu = _hesophu(sequelize, DataTypes);
 
-  DonDatPhongs.belongsToMany(Khachs, { as: 'CMNDKhach_Khaches', through: SuDungs, foreignKey: "idDonDat", otherKey: "CMNDKhach" });
-  Khachs.belongsToMany(DonDatPhongs, { as: 'idDonDat_DonDatPhongs', through: SuDungs, foreignKey: "CMNDKhach", otherKey: "idDonDat" });
   SuDungs.belongsTo(DonDatPhongs, { as: "idDonDat_DonDatPhong", foreignKey: "idDonDat"});
   DonDatPhongs.hasMany(SuDungs, { as: "SuDungs", foreignKey: "idDonDat"});
-  Accounts.belongsTo(Khachs, { as: "CMNDKhach_Khach", foreignKey: "CMNDKhach"});
-  Khachs.hasMany(Accounts, { as: "Accounts", foreignKey: "CMNDKhach"});
   DonDatPhongs.belongsTo(Khachs, { as: "CMNDKhach_Khach", foreignKey: "CMNDKhach"});
   Khachs.hasMany(DonDatPhongs, { as: "DonDatPhongs", foreignKey: "CMNDKhach"});
   Khachs.belongsTo(Khachs, { as: "idQuanLy_Khach", foreignKey: "idQuanLy"});
   Khachs.hasMany(Khachs, { as: "Khaches", foreignKey: "idQuanLy"});
-  SuDungs.belongsTo(Khachs, { as: "CMNDKhach_Khach", foreignKey: "CMNDKhach"});
-  Khachs.hasMany(SuDungs, { as: "SuDungs", foreignKey: "CMNDKhach"});
   Khachs.belongsTo(LoaiKhachs, { as: "LoaiKhach_LoaiKhach", foreignKey: "LoaiKhach"});
   LoaiKhachs.hasMany(Khachs, { as: "Khaches", foreignKey: "LoaiKhach"});
-  Phongs.belongsTo(LoaiPhongs, { as: "LoaiPhong_LoaiPhong", foreignKey: "LoaiPhong"});
-  LoaiPhongs.hasMany(Phongs, { as: "Phongs", foreignKey: "LoaiPhong"});
+  Phongs.belongsTo(LoaiPhongs, { as: "idLoaiPhong_LoaiPhong", foreignKey: "idLoaiPhong"});
+  LoaiPhongs.hasMany(Phongs, { as: "Phongs", foreignKey: "idLoaiPhong"});
   DonDatPhongs.belongsTo(Phongs, { as: "idPhong_Phong", foreignKey: "idPhong"});
   Phongs.hasMany(DonDatPhongs, { as: "DonDatPhongs", foreignKey: "idPhong"});
 
@@ -45,7 +39,7 @@ function initModels(sequelize) {
     LoaiPhongs,
     Phongs,
     SuDungs,
-    ThamSo,
+    hesophu,
   };
 }
 module.exports = initModels;
