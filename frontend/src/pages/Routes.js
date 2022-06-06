@@ -13,6 +13,7 @@ import Footer from '../components/footer';
 import Header from '../components/header';
 import React, { useState } from 'react';
 import AppProvider from '../components/AppProvider';
+import Booking from './booking/Booking'
 import Cookies from 'js-cookie';
 import Services from './services/Services';
 
@@ -41,7 +42,7 @@ else {
 const ProtectedRoute = (props) => {
   if(isAdmin) {
     if(props.path === "/booking") {
-      return <Redirect to="/" />
+      return <Route path="/booking" component={Booking}/>
     }
     else if(props.path === "/payment") {
       return <Redirect to="/" />
@@ -118,6 +119,7 @@ export default function Routes(){
           <ProtectedRoute exact path ="/DeluxeRoom" component = {DeluxeRoom} />
           <ProtectedRoute exact path ="/SuperiorRoom" component = {SuperiorRoom} /> */}
           <ProtectedRoute exact path="/"component={Home} />
+          <ProtectedRoute exact path="/booking" component={Booking} />
         </Switch>
         <div className="footer">
           <Footer/>

@@ -8,14 +8,6 @@ module.exports = function(sequelize, DataTypes) {
     },
     CMNDKhach: {
       type: DataTypes.STRING(15),
-      allowNull: true,
-      references: {
-        model: 'Khachs',
-        key: 'id'
-      }
-    },
-    _password: {
-      type: DataTypes.STRING(15),
       allowNull: true
     }
   }, {
@@ -29,13 +21,6 @@ module.exports = function(sequelize, DataTypes) {
         using: "BTREE",
         fields: [
           { name: "id" },
-        ]
-      },
-      {
-        name: "FK_Acounts_Khachs",
-        using: "BTREE",
-        fields: [
-          { name: "CMNDKhach" },
         ]
       },
     ]

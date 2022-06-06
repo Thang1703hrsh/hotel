@@ -1,24 +1,27 @@
-create database QLKhachSan;
-use QLKhachSan;
+drop database railway;
+
+create database railway;
+use railway;
 # tên các table phải kết thúc bằng chữ s (tức là số nhiều đó)
 # primary key luôn đặt tên là id, luôn có 2 trường là createAt và updateAt (quy định vậy)
 #mấy bảng là thực thể yếu thì không cần id 
 create table LoaiPhongs
 (
-	id char,
+	id int,
     primary key (id),
+    Ten VARCHAR(30),
     DonGia int,
+    image varchar(256),
     SLToida int DEFAULT 3,
     createdAt DATETIME DEFAULT CURRENT_TIMESTAMP,
-    updatedAt DATETIME ON UPDATE CURRENT_TIMESTAMP,
-    constraint CHK_DonGia CHECK(id in ('A','B','C'))
+    updatedAt DATETIME ON UPDATE CURRENT_TIMESTAMP
 );
 create table Phongs
 (
-	id NVARCHAR(10),
+	id int,
     primary key (id),
-    LoaiPhong char,
-    GhiChu nvarchar(50),
+    idLoaiPhong int,
+    GhiChu nvarchar(1000),
 	createdAt DATETIME DEFAULT CURRENT_TIMESTAMP,
     updatedAt DATETIME ON UPDATE CURRENT_TIMESTAMP
 );
@@ -59,7 +62,7 @@ create table DonDatPhongs
 	id int NOT NULL AUTO_INCREMENT,
     PRIMARY KEY (id),
 	CMNDKhach nvarchar(15),
-    idPhong NVARCHAR(10),
+    idPhong int,
 	ngayTT datetime, # chua thanh toan de null
     ngayBD datetime,
     ngayKT datetime,
@@ -74,7 +77,7 @@ create table Accounts
 
     createdAt DATETIME DEFAULT CURRENT_TIMESTAMP,
     updatedAt DATETIME ON UPDATE CURRENT_TIMESTAMP
-)
+);
 
 #
 /*
@@ -89,7 +92,7 @@ create table
 */
 alter table Phongs 
 add constraint FK_Phongs_LoaiPhongs
-foreign key (LoaiPhong) references LoaiPhongs(id);
+foreign key (idLoaiPhong) references LoaiPhongs(id);
 
 alter table Khachs 
 add constraint FK_Khachs_LoaiKhachs
@@ -111,12 +114,14 @@ alter table Khachs
 add constraint FK_Khachs_Khachs
 foreign key (idQuanLy) references Khachs(id);
 
-insert into Phongs(id,GhiChu) values ('E104',n'Phòng víp lắm luôn á');
-insert into Phongs(id,GhiChu) values ('E105',n'Phòng hơi đẹp');
+insert into LoaiPhongs(id,Ten,image,DonGia) values (1,'Superior King Room','https://s3-ap-southeast-1.amazonaws.com/blog-ph/wp-content/uploads/2016/08/12091211/hotel-room-marina-bay-sands.jpg?fbclid=IwAR2THjgS5DDepCHxF79YDpzP81m3osoUmdkVpnhG156hZ9HKm2y_3Ifp4HQ',100);
+insert into LoaiPhongs(id,Ten,image,DonGia) values (2,'Superior Twin Room','https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Hotel-room-renaissance-columbus-ohio.jpg/1024px-Hotel-room-renaissance-columbus-ohio.jpg?fbclid=IwAR0RrI8LLOCUrqcIBZLUF2FSB7E33oIT858L_9mcMlweE3D8DunNnHPL8VA',200);
+insert into LoaiPhongs(id,Ten,image,DonGia) values (3,'Superior Plus King Room','https://imageio.forbes.com/specials-images/imageserve/5cdb058a5218470008b0b00f/Nobu-Ryokan-Malibu/0x0.jpg?format=jpg&height=1009&width=2000&fbclid=IwAR0cVNxU2gfPwe_k3kOPBp6itzEfGTieiXmPjBsqzv-2d-1QQ0m0WihPpSo',300);
 
-insert into LoaiPhongs(id,DonGia) values ('A',150000);
-insert into LoaiPhongs(id,DonGia) values ('B',170000);
-insert into LoaiPhongs(id,DonGia) values ('C',200000);
+insert into Phongs(id,GhiChu) values (1,n'Looking out across magnificent panoramic views of Saigon, this well-appointed 38 sqm room offers the perfect balance of privacy and luxury.');
+insert into Phongs(id,GhiChu) values (2,n'Ideal for both business and leisure travellers, timeless luxury and functional amenities unite, all with a stunning view of the city.');
+insert into Phongs(id,GhiChu) values (3,n'Superior Plus King rooms offer exclusive space to relax, along with stunning views of cosmopolitan Saigon.');
 
-update Phongs set LoaiPhong = 'A' where id='E104';
-update Phongs set LoaiPhong = 'B' where id='E105';
+update Phongs set idLoaiPhong = 1 where id=1;
+update Phongs set idLoaiPhong = 2 where id=2;
+update Phongs set idLoaiPhong = 3 where id=3;

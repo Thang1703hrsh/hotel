@@ -15,7 +15,7 @@ export default function Booking(){
     const [valueCheckIn, setValueCheckIn] = React.useState('');
     const [valueCheckOut, setValueCheckOut] = React.useState('');
     const [searchItem, setSearchItem] = useState('');
-
+    //return (<div>Hello</div>)
     return (
         <Container sx={{marginTop: 2}} style={{marginTop: '64px'}}>
             <Grid sx={{backgroundColor: '#FCEBD7'}}>
@@ -63,4 +63,5 @@ export default function Booking(){
             <RoomInfo searchItem={searchItem} checkIn={valueCheckIn} checkOut={valueCheckOut}/>
         </Container>
     );
-}
+    
+};

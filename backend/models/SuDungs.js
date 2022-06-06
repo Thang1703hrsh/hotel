@@ -13,11 +13,7 @@ module.exports = function(sequelize, DataTypes) {
     CMNDKhach: {
       type: DataTypes.STRING(15),
       allowNull: false,
-      primaryKey: true,
-      references: {
-        model: 'Khachs',
-        key: 'id'
-      }
+      primaryKey: true
     }
   }, {
     sequelize,
@@ -30,13 +26,6 @@ module.exports = function(sequelize, DataTypes) {
         using: "BTREE",
         fields: [
           { name: "idDonDat" },
-          { name: "CMNDKhach" },
-        ]
-      },
-      {
-        name: "FK_SuDungs_Khachs",
-        using: "BTREE",
-        fields: [
           { name: "CMNDKhach" },
         ]
       },
