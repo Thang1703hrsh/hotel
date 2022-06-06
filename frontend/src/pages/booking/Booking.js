@@ -1,6 +1,6 @@
 import {Container} from '@mui/material';
 import React from 'react';
-import RoomInfo from './components/RoomInfo';
+// import RoomInfo from './components/RoomInfo';
 import { useState } from 'react';
 import AdapterDateFns from '@mui/lab/AdapterDateFns';
 import LocalizationProvider from '@mui/lab/LocalizationProvider';
@@ -60,7 +60,7 @@ export default function Booking(){
             </Grid>
 
             {/* Room Info */}
-            <RoomInfo searchItem={searchItem} checkIn={valueCheckIn} checkOut={valueCheckOut}/>
+            {/* <RoomInfo searchItem={searchItem} checkIn={valueCheckIn} checkOut={valueCheckOut}/> */}
         </Container>
     );
     

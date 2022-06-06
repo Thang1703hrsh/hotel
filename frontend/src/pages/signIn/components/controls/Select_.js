@@ -26,8 +26,8 @@ export default function Select_(props) {
             value={value}
             onChange={onChange}
         >
-          <MenuItem value = {'Foreign'}>Foreign</MenuItem>
-          <MenuItem value = {'Domestic'} >Domestic</MenuItem>
+          <MenuItem value = {0}>Foreign</MenuItem>
+          <MenuItem value = {1} >Domestic</MenuItem>
         </Select>
       </FormControl>
     )
