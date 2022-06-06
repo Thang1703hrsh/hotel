@@ -1,6 +1,7 @@
 import Box from '@material-ui/core/Box'
-import MainBanner from '../img/mainBanner.png'
+import MainBanner from '../img/mainBanner.jpg'
 import { Card, CardMedia, Typography } from '@material-ui/core';
+
 
 
 export default function Banner() {
