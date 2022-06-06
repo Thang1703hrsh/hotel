@@ -14,10 +14,10 @@ import Header from '../components/header';
 import React, { useState } from 'react';
 import AppProvider from '../components/AppProvider';
 import Cookies from 'js-cookie';
-import ClubRoom from './rooms/ClubRoom';
-import DeluxeRoom from './rooms/DeluxeRoom'
-import SuperiorRoom from "./rooms/SuperiorRoom";
-import ScrollToTop from "./rooms/ScrollToTop";
+// import ClubRoom from './rooms/ClubRoom';
+// import DeluxeRoom from './rooms/DeluxeRoom'
+// import SuperiorRoom from "./rooms/SuperiorRoom";
+// import ScrollToTop from "./rooms/ScrollToTop";
 var isLogin = Cookies.get('id');
 var isAdmin = Cookies.get('isAdmin');
 
@@ -103,16 +103,16 @@ export default function Routes(){
     <div>
       <AppProvider>
       <Router>
-        <ScrollToTop/>
+        {/* <ScrollToTop/> */}
         <Header/>
      
         <Switch>   
           <ProtectedRoute exact path="/rooms" component={AllRooms} />
           <ProtectedRoute exact path="/signup" component={SignUp} />
           <ProtectedRoute exact path="/signin" component={SignIn} />
-          <ProtectedRoute exact path ="/ClubRoom" component = {ClubRoom} />
+          {/* <ProtectedRoute exact path ="/ClubRoom" component = {ClubRoom} />
           <ProtectedRoute exact path ="/DeluxeRoom" component = {DeluxeRoom} />
-          <ProtectedRoute exact path ="/SuperiorRoom" component = {SuperiorRoom} />
+          <ProtectedRoute exact path ="/SuperiorRoom" component = {SuperiorRoom} /> */}
           <ProtectedRoute exact path="/"component={Home} />
         </Switch>
         <div className="footer">
