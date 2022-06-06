@@ -5,7 +5,7 @@ import { Card, CardMedia, Typography } from '@material-ui/core';
 export default function Banner() {
     return (
             <Card>
-                <Box sx={{ position: 'relative' }}>
+                <Box sx={{height: 900, position: 'relative' }}>
                     <CardMedia
                         component="img"
                         image={ImageBanner}

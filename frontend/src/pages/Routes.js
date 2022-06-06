@@ -14,6 +14,8 @@ import Header from '../components/header';
 import React, { useState } from 'react';
 import AppProvider from '../components/AppProvider';
 import Cookies from 'js-cookie';
+import Services from './services/Services';
+
 // import ClubRoom from './rooms/ClubRoom';
 // import DeluxeRoom from './rooms/DeluxeRoom'
 // import SuperiorRoom from "./rooms/SuperiorRoom";
@@ -110,6 +112,8 @@ export default function Routes(){
           <ProtectedRoute exact path="/rooms" component={AllRooms} />
           <ProtectedRoute exact path="/signup" component={SignUp} />
           <ProtectedRoute exact path="/signin" component={SignIn} />
+          <ProtectedRoute exact path="/services" component={Services} />
+
           {/* <ProtectedRoute exact path ="/ClubRoom" component = {ClubRoom} />
           <ProtectedRoute exact path ="/DeluxeRoom" component = {DeluxeRoom} />
           <ProtectedRoute exact path ="/SuperiorRoom" component = {SuperiorRoom} /> */}

@@ -19,7 +19,7 @@ import LoginIcon from '@mui/icons-material/Login';
 
 
 const initialFValues = {
-    email: '',
+    id: '',
     password: '',
     isRemember: false
 }
@@ -30,8 +30,8 @@ export default function SignIn() {
 
     const validate = (fieldValues = values) => {
         let temp = { ...errors }
-        if ('email' in fieldValues)
-            temp.email = fieldValues.email ? "" : "This field is required."
+        if ('id' in fieldValues)
+            temp.id = fieldValues.id ? "" : "This field is required."
         if ('password' in fieldValues)
             temp.password = fieldValues.password ? "" : "This field is required."
         setErrors({
@@ -53,7 +53,7 @@ export default function SignIn() {
         e.preventDefault()
         if (validate()){
           const input = {
-            email: values.email,
+            id: values.id,
             password: values.password
           }
           axios.post('/api/account/login', { input }, {
@@ -91,12 +91,12 @@ export default function SignIn() {
                         <Grid item xs={12} sm={12}>
                             <Form onSubmit={handleSubmit}>
                                 <Controls.Input
-                                    label="Email or member number *"
-                                    name="email"
-                                    value={values.email}
+                                    label="ID *"
+                                    name="id"
+                                    value={values.id}
                                     type="input"
                                     onChange={handleInputChange}
-                                    error={errors.email}
+                                    error={errors.id}
                                 />
                                 <Controls.Input
                                     label="Password *"

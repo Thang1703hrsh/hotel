@@ -13,12 +13,12 @@ const Offers = {
     },
     o2: {
         title: "LONGEVITY RETREAT",
-        caption: "Breathe life into the body and soul with a revitalizing combination of scrub, facials and wraps made of the most nurturing ingredients.",
+        caption: "Breathe life into the body and soul with a revitalizing combination of scrub, facials.",
         image: Offer2
     },
     o3: {
         title: "REJUVENATION BODY WRAP",
-        caption: "Indulge the pure relaxation from our oasis of refreshment at Spa InterContinental, with the dedication to ensure our guests' physical and mental health, our Rejuvenation body wrap offers the ultimate experience in body treatments.",
+        caption: "Indulge the pure relaxation from our oasis of refreshment at Spa InterContinental.",
         image: Offer3
     }
 }
@@ -33,8 +33,8 @@ function OfferCard({ Offer }) {
                 <Grid item xs={12}>
                     <Typography variant="body2">{Offer.caption}</Typography>
                 </Grid>
-                <Grid item xs={12}>
-                    <CardMedia
+                <Grid item xs={12} >
+                    <CardMedia height="400px"
                         component="img"
                         alt="Offer"
                         image={Offer.image}

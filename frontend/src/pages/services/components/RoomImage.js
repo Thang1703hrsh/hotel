@@ -2,7 +2,7 @@ import { CardMedia } from "@material-ui/core";
 
 export default function RoomImage({ RoomImage }) {
     return (
-            <CardMedia
+            <CardMedia height="400px"
                 component="img"
                 alt="Banner"
                 image={RoomImage}

@@ -2,7 +2,6 @@ import { Grid, } from '@material-ui/core';
 import Controls from "./components/controls/Controls";
 import { useForm, Form } from './components/useForm';
 import axios from 'axios';
-import moment from 'moment';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import Container from '@mui/material/Container';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -15,15 +14,11 @@ import {Link} from '@material-ui/core';
 
 
 const initialFValues = {
-    firstName: '',
-    lastName: '',
-    email: '',
-    emailConfirm: '',
+    id: '',
     password: '',
     passwordConfirm: '',
     country: '',
-    phoneNumber: '',
-    dob: null,
+    cmnd: '',
     showPassword: false
 }
 
@@ -34,24 +29,21 @@ export default function SignUp() {
 
     const validate = (fieldValues = values) => {
         let temp = { ...errors }
-        if ('firstName' in fieldValues)
-            temp.firstName = fieldValues.firstName ? "" : "This field is required."
-        if ('lastName' in fieldValues)
-            temp.lastName = fieldValues.lastName ? "" : "This field is required."
-        if ('email' in fieldValues)
-            temp.email = fieldValues.email ? ((/^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/).test(String(fieldValues.email).toLowerCase()) ? "" : "Email is invalid") : "This field is required."
-        if ('emailConfirm' in fieldValues)
-            temp.emailConfirm = fieldValues.emailConfirm ? (fieldValues.emailConfirm === fieldValues.email ? "" : "Emails don't match") : "This field is required."
+
+        if ('Id' in fieldValues)
+            temp.id = fieldValues.id ? "" : "Id is invalid."
+
         if ('password' in fieldValues)
             temp.password = fieldValues.password ? ((/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,16}$/).test(fieldValues.password) ? "" : "Please select a password between 8 to 16 characters which contain at least one lowercase letter, one uppercase letter, one numeric digit, and one special character") : "This field is required."
         if ('passwordConfirm' in fieldValues)
             temp.passwordConfirm = fieldValues.passwordConfirm ? (fieldValues.passwordConfirm === fieldValues.password ? "" : "Passwords don't match") : "This field is required."
+
         if ('country' in fieldValues)
             temp.country = fieldValues.country ? "" : "This field is required."
-        if ('phoneNumber' in fieldValues)
-            temp.mobile = temp.phoneNumber = fieldValues.phoneNumber ? ((/^[0-9]\w{0,10}$/).test(fieldValues.phoneNumber) ? "" : "Phone number is not valid.") : "This field is required."
-        if ('dob' in fieldValues)
-            temp.dob = fieldValues.dob !== null ? "" : "This field is required."
+
+        if ('CMND' in fieldValues)
+            temp.cmnd = fieldValues.cmnd ? "": "This field is required."
+
         setErrors({
             ...temp
         })
@@ -65,27 +57,23 @@ export default function SignUp() {
         errors,
         setErrors,
         handleInputChange,
-        resetForm
     } = useForm(initialFValues, true, validate);
     
     const handleSubmit = e => {
         e.preventDefault()
         if (validate()){
             axios.post('/api/account', {
-                firstName: values.firstName,
-                lastName: values.lastName,
-                email: values.email,
+                id: values.id,
                 password: values.password,
-                dob: moment(values.dob).format('YYYY-MM-DD'),
-                phone: values.phoneNumber,
+                cmnd: values.cmnd,
                 country: values.country
             })
             .then((response) => {
-                  alert(`Created user with email ${values.email} successfully!`)
+                  alert(`Created user with id ${values.id} successfully!`)
             })
             .catch((error) => {
                 console.log(error);
-                alert('Email already exists!')
+                alert('id already exists!')
             });
         }
     }
@@ -112,37 +100,14 @@ export default function SignUp() {
                                 <Grid container>
                                     <Grid item>
                                         <Controls.Input
-                                            label="First Name *"
-                                            name="firstName"
-                                            value={values.firstName}
-                                            type="input"
+                                            label="ID *"
+                                            name="id"
+                                            value={values.id}
+                                            type="id"
                                             onChange={handleInputChange}
-                                            error={errors.firstName}
+                                            error={errors.id}
                                         />
-                                        <Controls.Input
-                                            label="Last Name *"
-                                            name="lastName"
-                                            value={values.lastName}
-                                            type="input"
-                                            onChange={handleInputChange}
-                                            error={errors.lastName}
-                                        />
-                                        <Controls.Input
-                                            label="Email address *"
-                                            name="email"
-                                            value={values.email}
-                                            type="email"
-                                            onChange={handleInputChange}
-                                            error={errors.email}
-                                        />
-                                        <Controls.Input
-                                            label="Verify email address *"
-                                            name="emailConfirm"
-                                            value={values.emailConfirm}
-                                            type="email"
-                                            onChange={handleInputChange}
-                                            error={errors.emailConfirm}
-                                        />
+                    
                                         <Controls.Input
                                             label="Password *"
                                             name="password"
@@ -151,6 +116,7 @@ export default function SignUp() {
                                             onChange={handleInputChange}
                                             error={errors.password}
                                         />
+
                                         <Controls.Input
                                             label="Verify password *"
                                             name="passwordConfirm"
@@ -159,29 +125,21 @@ export default function SignUp() {
                                             onChange={handleInputChange}
                                             error={errors.passwordConfirm}
                                         />
-                                        <Controls.Input
+
+                                        <Controls.Select_
                                             label="Country/Region *"
                                             name="country"
-                                            value={values.country}
-                                            type="input"
                                             onChange={handleInputChange}
                                             error={errors.country}
                                         />
-                                        
+
                                         <Controls.Input
-                                            label="Phone Number *"
-                                            name="phoneNumber"
-                                            value={values.phoneNumber}
+                                            label="CMND *"
+                                            name="cmnd"
+                                            value={values.cmnd}
                                             type="number"
                                             onChange={handleInputChange}
-                                            error={errors.phoneNumber}
-                                        />
-                                        <Controls.DatePicker
-                                            label="Date of birth *"
-                                            name="dob"
-                                            value={values.dob}
-                                            onChange={handleInputChange}
-                                            error={errors.dob}
+                                            error={errors.cmnd}
                                         />
                                         
                                         <Button
