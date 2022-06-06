@@ -32,7 +32,9 @@ import PhoneInTalkIcon from '@mui/icons-material/PhoneInTalk';
 
 // authentication
 var isAdmin = Cookies.get('isAdmin');
-var isLogin = Cookies.get('id');
+//var isLogin = Cookies.get('id');
+var isLogin = localStorage.getItem("token");
+
 if(isLogin){
   isLogin = true;
 }
@@ -99,6 +101,9 @@ const Header = (props) => {
   const handleSignOut = () => {
     Cookies.remove('id');
     Cookies.remove('isAdmin');
+    localStorage.removeItem("token")
+    localStorage.removeItem("id")
+    localStorage.removeItem("account")
     alert("Signed Out Completed!");
     window.location.reload();
   }
