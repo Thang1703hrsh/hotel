@@ -24,7 +24,7 @@ const register = asyncHandler(async (req, res) => {
     }
     const khach = await models.Khachs.findOne({
         where: {
-            id:cmndcmnd
+            id:cmnd,
         }
     })
     if(khach){
@@ -46,8 +46,7 @@ const register = asyncHandler(async (req, res) => {
     //Create Khach
     const newKhach = await models.Khachs.create({
         cmnd:id,
-        country:DiaChi,
-        DiaChi:country,
+        LoaiKhach:country,
 
     })
     // Create token
