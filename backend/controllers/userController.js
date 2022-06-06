@@ -9,7 +9,7 @@ const sequelize = db.sequelize
 // // @route   POST /api/Accounts
 // // @access  Public
 const register = asyncHandler(async (req, res) => {
-    const { id, password } = req.body
+    const { id, password,cmnd,country } = req.body
     // Check if Account exists
     const account = await models.Accounts.findOne({
         where: {
@@ -32,6 +32,8 @@ const register = asyncHandler(async (req, res) => {
     const newAccount = await models.Accounts.create({
         id,
         _password:hashedPassword,
+        cmnd:cmnd,
+        country:country,
     })
     // Create token
     const token = jwt.sign({ id: newAccount.id }, process.env.JWT_SECRET, {
@@ -50,7 +52,9 @@ const register = asyncHandler(async (req, res) => {
         token,
         Account: {
             id: newAccount.id,
-            email: newAccount.email,
+            //email: newAccount.email,
+            cmnd: newAccount.cmnd,
+            country: newAccount.country,
         },
     })
 })
@@ -100,6 +104,8 @@ const register = asyncHandler(async (req, res) => {
 const login = asyncHandler(async (req, res) => {
     const { id, password } = req.body
     // Check if Account exists
+    console.log(id)
+    console.log(password)
     const account = await models.Accounts.findOne({
         where: {
             id,

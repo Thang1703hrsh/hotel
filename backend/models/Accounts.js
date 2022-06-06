@@ -9,6 +9,10 @@ module.exports = function(sequelize, DataTypes) {
     CMNDKhach: {
       type: DataTypes.STRING(15),
       allowNull: true
+    },
+    _password: {
+      type: DataTypes.STRING(100),
+      allowNull: true
     }
   }, {
     sequelize,

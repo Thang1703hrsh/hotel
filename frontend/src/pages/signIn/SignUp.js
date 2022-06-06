@@ -62,7 +62,7 @@ export default function SignUp() {
     const handleSubmit = e => {
         e.preventDefault()
         if (validate()){
-            axios.post('/api/account', {
+            axios.post('/api/users/', {
                 id: values.id,
                 password: values.password,
                 cmnd: values.cmnd,
