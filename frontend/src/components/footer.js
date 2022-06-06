@@ -24,19 +24,25 @@ const useStyles = makeStyles(theme => ({
 
 }));
 
-const textcolor = "#1A1810";
+const textcolor = "#ffffff";
 
 export default function Footer(){
     const classes = useStyles(); 
     return (
-    <Box className={classes.footerContainer} sx={{ width: '100%' , position: "relative" , left: "50%", transform: "translateX(-50%)", }} marginTop='10vh' backgroundColor='#FCFAF0'>
+    <Box className={classes.footerContainer} sx={{ width: '100%' , position: "relative" , left: "50%", transform: "translateX(-50%)", }} marginTop='10vh' backgroundColor='#0f1e4d'>
         <Grid className={classes.gridContainer} container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }} columns={16}>
             <Grid item lg={7} md={9} sm={9} xs={16} >
                 <Link style={{ textDecoration: 'none' }} to="/">
                     <Typography variant="h6" component="div" className={classes.linkItem} textAlign="left" sx={{ flexGrow: 1 }}  color={textcolor}> HCMUS HOTEL </Typography>
                 </Link>
                 <Link style={{ textDecoration: 'none' }} to="/">
-                    <Typography variant="body1" component="div" className={classes.linkItem} textAlign="left" sx={{ flexGrow: 1 }}  color={textcolor}> @2022 </Typography>
+                    <Typography variant="body1" component="div" className={classes.linkItem} textAlign="left" sx={{ flexGrow: 1 }}  color={textcolor}> Address </Typography>
+                </Link>
+                <Link style={{ textDecoration: 'none' }} to="/">
+                    <Typography variant="body1" component="div" className={classes.linkItem} textAlign="left" sx={{ flexGrow: 1 }}  color={textcolor}> +84 986930777 </Typography>
+                </Link>
+                <Link style={{ textDecoration: 'none' }} to="/">
+                    <Typography variant="body1" component="div" className={classes.linkItem} textAlign="left" sx={{ flexGrow: 1 }}  color={textcolor}> Ho Chi Minh </Typography>
                 </Link>
                 <Link style={{ textDecoration: 'none' }} to="/">
                     <Typography variant="body1" component="div" className={classes.linkItem} textAlign="left" sx={{ flexGrow: 1 }}  color={textcolor}> Privacy -Terms </Typography>
