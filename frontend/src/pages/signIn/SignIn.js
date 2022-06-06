@@ -61,7 +61,10 @@ export default function SignIn() {
           })
           .then((response) => {
             if (response.data){
-              alert(response.data);
+              
+              localStorage.setItem("token", response.data.token)
+              alert(  "Succesfully signed in as user: " + response.data.Account.id );
+              window.location.href = "/"
               //window.location.reload();
             }
           })
