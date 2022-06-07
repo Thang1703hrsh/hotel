@@ -5,6 +5,7 @@ import moment from 'moment';
 import Cookies from 'js-cookie';
 import RoomPaymentInfo from "./components/RoomPaymentInfo";
 import {createTheme, ThemeProvider} from '@mui/material/styles';
+
 const instance = axios.create({baseURL: "http://localhost:5000"})
 const theme= createTheme({
     palette: {
@@ -16,16 +17,7 @@ const theme= createTheme({
 })
 
 export default function Payment(props) {
-    
-    const [payment, setPayment] = useState([]);
- 
-    const [totalValue, setTotalValue] = useState();
-   
 
-    
-
-   
-    
     return (
         <>
         <Container sx={{marginTop: 2}} style={{marginTop: '64px'}}>

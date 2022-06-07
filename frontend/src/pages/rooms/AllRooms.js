@@ -4,6 +4,7 @@ import RoomBox from './componentsAllRooms/RoomBox'
 import { MuiThemeProvider } from "@material-ui/core/styles";
 import themeRooms from './componentsAllRooms/Theme';
 import { RoomList } from './componentsAllRooms/RoomList';
+import RoomBoxRevert from './componentsAllRooms/RoomBoxRevert';
 
 function AllRooms() {
     const Rooms = [
@@ -16,9 +17,15 @@ function AllRooms() {
             <Banner />
             {
                 Rooms.map(e => {
-                    return (
-                        <RoomBox Room={e} />
-                    )
+                    if (Rooms.indexOf(e) % 2 === 0) {
+                        return (
+                            <RoomBox Room={e} />
+                        )
+                    } else {
+                        return (
+                            <RoomBoxRevert Room={e} />
+                        )
+                    }
                 })}
         </MuiThemeProvider>
     )
