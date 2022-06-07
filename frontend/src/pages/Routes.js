@@ -19,7 +19,7 @@ import Services from './services/Services';
 import PlusKingRoom from './rooms/PlusKingRoom';
 import SuperiorTwinRoom from './rooms/SuperiorTwinRoom'
 import SuperiorKingRoom from "./rooms/SuperiorKingRoom";
-// import ScrollToTop from "./rooms/ScrollToTop";
+import ScrollToTop from "./rooms/ScrollToTop";
 
 
 var isLogin = Cookies.get('id');
@@ -107,7 +107,7 @@ export default function Routes(){
     <div>
       <AppProvider>
       <Router>
-        {/* <ScrollToTop/> */}
+        <ScrollToTop/>
         <Header/>
      
         <Switch>   
