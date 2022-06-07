@@ -1,5 +1,5 @@
 import {Container} from '@mui/material';
-import React from 'react';
+import React, { useEffect } from 'react';
 import RoomInfo from './components/RoomInfo';
 import { useState } from 'react';
 import AdapterDateFns from '@mui/lab/AdapterDateFns';
@@ -16,7 +16,7 @@ export default function Booking(){
     const [valueCheckIn, setValueCheckIn] = React.useState('');
     const [valueCheckOut, setValueCheckOut] = React.useState('');
     const [searchItem, setSearchItem] = useState('');
-    //return (<div>Hello</div>)
+
     return (
         <Container sx={{marginTop: 2}} style={{marginTop: '64px'}}>
             <Grid sx={{backgroundColor: '#FCEBD7'}}>
