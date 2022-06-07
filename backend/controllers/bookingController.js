@@ -68,7 +68,32 @@ const unpaidBooking = asyncHandler(async (req, res) => {
         totalValue:totalPrice,
     })
 })
-
+//@desc update DonDatPhong to paid
+//@route POST /api/booking/:id
+//@access Public
+const paidBooking = asyncHandler(async (req, res) => {
+    const roomID = req.params.id
+    models.DonDatPhongs.update({
+        //today is the date of payment
+        ngayTT:new Date(),
+    },{
+        where:{
+            id:roomID,
+        }
+    }).then(()=>{
+        res.status(200).json({
+            success:true,
+        })
+    }
+    ).catch(err=>{
+        res.status(400).json({
+            success:false,
+            error:err,
+        })
+    }
+    )
+    
+})
 //export
 module.exports = {
     createBooking,
