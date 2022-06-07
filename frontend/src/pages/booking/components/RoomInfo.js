@@ -31,29 +31,53 @@ export default function RoomInfo(props) {
     let booking = {
         checkIn: checkIn,
         checkOut: checkOut,
-        name: '',
-        image: '',
-        price: '',
-        authenticationId: '',
+        // authenticationId: '',
         roomId: '',
     }
     const [room, setRoom] = useState([]);
     useEffect(() => {
-        
         instance.get("/api/rooms/getavailable",
         )
         .then(res => {
-            console.log(res);
-            console.log("This fucking code is broken");
             setRoom(res.data);
         })
         .catch(error => alert("Cannot load room"))
+        
     }, [])
     // var request = new XMLHttpRequest();
     // request.open("GET", "./mock_data.json", false);
     // request.send(null)
     // var my_JSON_object = JSON.parse(request.responseText);
     // setRoom(my_JSON_object)
+    var checkAvailable = false;
+    const getDates = () => {
+        if (checkIn === undefined | checkIn === undefined) return;
+        else {
+            return [moment(moment(checkIn, 'DD-MM-YYYY').toDate()).format('YYYY-MM-DD'), moment(moment(checkOut, 'DD-MM-YYYY').toDate()).format('YYYY-MM-DD')]
+        }
+        
+    }
+    function handleDataChangeCheckIn(val) {
+        if(!moment(booking.checkOut).isValid()) {
+            alert('Please input check-out');
+            return;
+        }
+        else if(moment(booking.checkOut).diff(moment(booking.checkIn), 'days') <= 0) {
+            alert("Please input check-out date after check-in date");
+            return;
+        }
+        let checkIn_ = moment(checkIn)
+        let checkOut_ = moment(checkOut)
+        instance.get('/api/getavailable', {params: {
+           checkIn: checkIn_,
+           checkOut: checkOut_ 
+        }}).then(res => {
+            setRoom(res.data);
+        }).catch(err => {
+            alert("Cannot load room");
+        })
+
+    }
     function handleClick(val) {
         console.log(booking.checkIn);
         if(!moment(booking.checkIn).isValid()) {
@@ -68,24 +92,29 @@ export default function RoomInfo(props) {
             alert("Please input check-out date after check-in date");
             return;
         }
-        booking.name = val.name;
-        booking.image = val.picture;
-        booking.price = val.price;
         booking.roomId = val.id;
         var userToken = localStorage.getItem("token");
-        console.log(booking);
-        if(userToken === undefined) {
+
+        // console.log("alo");
+        // console.log(userToken);
+        
+        if(userToken === null) {
             alert("Please log in!")
-            window.location.href = "/login";
+            window.location.href = "/signin";
         }
         
         //booking.token = localStorage.getItem("token");
         booking.startDate = moment(booking.checkIn);
         booking.endDate = moment(booking.checkOut);
-        instance.post("/api/booking", headers={
-            Authorization: "Bearer " + userToken
-        },
-            booking
+        console.log(userToken)
+        console.log("\n\n\n\n\n\n\n")
+        console.log(booking);
+        instance.post("/api/booking", booking,{headers: {
+            Authorization: "Bearer " + userToken,
+           // Cookie: "token="+userToken,
+
+        }},
+            
             /*
             {
                 name: string,
@@ -96,10 +125,14 @@ export default function RoomInfo(props) {
             */
         ).then(res => {
             // If success
-
+            alert("Succesfully booked ??????")
+            window.location.href="/payment"
         }).catch(err => {
             // If error
 
+            alert("Unsuccesfully booked ??????")
+            console.log(err)
+        
         })
         localStorage.setItem('booking', JSON.stringify(booking));
         
@@ -116,21 +149,22 @@ export default function RoomInfo(props) {
                 }
             }).map((val, key) => {
                 return (
-                    <Grid container sx={{borderBottom: 1}}>
-                        <Grid item md={2}>
+                    <Grid container sx={{borderBottom: 0, marginTop: 3}}>
+                        <Grid item md={1.5}>
                             <CardMedia 
                                 component="img"
-                                image={val.picture}
+                                image={val.image}mm
                                 alt="image"
                             />
                         </Grid>
                         <Grid item md={8} sx={{textAlign: 'left', marginTop: 1}}>
-                            <Typography variant="h5" sx={{marginLeft: 1}}>{val.name}</Typography>
+                            <Typography variant="h6" sx={{   mmmmarginLeft: 1}}>{val.name}</Typography>
                             <Typography variant="inherit" sx={{marginLeft: 1}}>{val.description}</Typography>
                         </Grid>
                         <Grid item md={2} direction='column' alignSelf='center'>
                             <Typography variant="inherit">From {val.price}$</Typography>
-                            <ThemeProvider theme={theme}><Button variant="contained" color="buttonColor" id={val.id} onClick={() => handleClick(val)}>Select room</Button></ThemeProvider>
+                            <ThemeProvider theme={theme}>
+                                <Button variant="contained" color="buttonColor" id={val.id} onClick={() => handleClick(val)}>Select room</Button></ThemeProvider>
                         </Grid>
                     </Grid>
                 )
