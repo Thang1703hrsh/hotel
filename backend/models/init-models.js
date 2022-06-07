@@ -20,6 +20,8 @@ function initModels(sequelize) {
 
   SuDungs.belongsTo(DonDatPhongs, { as: "idDonDat_DonDatPhong", foreignKey: "idDonDat"});
   DonDatPhongs.hasMany(SuDungs, { as: "SuDungs", foreignKey: "idDonDat"});
+  Accounts.belongsTo(Khachs, { as: "CMNDKhach_Khach", foreignKey: "CMNDKhach"});
+  Khachs.hasMany(Accounts, { as: "Accounts", foreignKey: "CMNDKhach"});
   DonDatPhongs.belongsTo(Khachs, { as: "CMNDKhach_Khach", foreignKey: "CMNDKhach"});
   Khachs.hasMany(DonDatPhongs, { as: "DonDatPhongs", foreignKey: "CMNDKhach"});
   Khachs.belongsTo(Khachs, { as: "idQuanLy_Khach", foreignKey: "idQuanLy"});

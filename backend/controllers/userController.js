@@ -37,9 +37,14 @@ const register = asyncHandler(async (req, res) => {
     // log hashpass
     console.log(hashedPassword.length)
     // Create Account
+    const newKhach = await models.Khachs.create({
+        id:cmnd,
+        LoaiKhach:country,
 
+    })
     const newAccount = await models.Accounts.create({
-        id,
+        id:id,
+        CMNDKhach:cmnd,
         _password:hashedPassword,
     })
     //check country in {0,1}
@@ -49,11 +54,7 @@ const register = asyncHandler(async (req, res) => {
     }
 
     //Create Khach
-    const newKhach = await models.Khachs.create({
-        id:cmnd,
-        LoaiKhach:country,
 
-    })
     // Create token
     const token = jwt.sign({ id: newAccount.id }, process.env.JWT_SECRET, {
         expiresIn: process.env.JWT_EXPIRES_IN,
