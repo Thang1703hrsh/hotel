@@ -37,7 +37,7 @@ export default function Booking(){
                 <Grid item md={3} sx={{margin: 2}}>
                     <LocalizationProvider dateAdapter={AdapterDateFns}>
                     <DatePicker
-                        label="Check-out"   
+                        label="Check-out"
                         value={valueCheckOut}
                         onChange={(newValue) => {
                             setValueCheckOut(newValue);
