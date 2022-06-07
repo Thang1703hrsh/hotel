@@ -16,11 +16,12 @@ import AppProvider from '../components/AppProvider';
 import Booking from './booking/Booking'
 import Cookies from 'js-cookie';
 import Services from './services/Services';
-
-// import ClubRoom from './rooms/ClubRoom';
-// import DeluxeRoom from './rooms/DeluxeRoom'
-// import SuperiorRoom from "./rooms/SuperiorRoom";
+import PlusKingRoom from './rooms/PlusKingRoom';
+import SuperiorTwinRoom from './rooms/SuperiorTwinRoom'
+import SuperiorKingRoom from "./rooms/SuperiorKingRoom";
 // import ScrollToTop from "./rooms/ScrollToTop";
+
+
 var isLogin = Cookies.get('id');
 var isAdmin = Cookies.get('isAdmin');
 
@@ -115,9 +116,9 @@ export default function Routes(){
           <ProtectedRoute exact path="/signin" component={SignIn} />
           <ProtectedRoute exact path="/services" component={Services} />
 
-          {/* <ProtectedRoute exact path ="/ClubRoom" component = {ClubRoom} />
-          <ProtectedRoute exact path ="/DeluxeRoom" component = {DeluxeRoom} />
-          <ProtectedRoute exact path ="/SuperiorRoom" component = {SuperiorRoom} /> */}
+          <ProtectedRoute exact path ="/PlusKingRoom" component = {PlusKingRoom} />
+          <ProtectedRoute exact path ="/SuperiorTwinRoom" component = {SuperiorTwinRoom} />
+          <ProtectedRoute exact path ="/SuperiorKingRoom" component = {SuperiorKingRoom} />
           <ProtectedRoute exact path="/"component={Home} />
           <ProtectedRoute exact path="/booking" component={Booking} />
         </Switch>
