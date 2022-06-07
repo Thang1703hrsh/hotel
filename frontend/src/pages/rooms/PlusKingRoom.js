@@ -11,9 +11,6 @@ import { Services } from './components/ServiceList';
 import axios from 'axios'
 import React from 'react';
 
-//let Rooms = [];
-
-
 
 export default function PlusKingRoom() {
 

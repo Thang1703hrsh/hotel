@@ -16,19 +16,11 @@ import AppProvider from '../components/AppProvider';
 import Booking from './booking/Booking'
 import Cookies from 'js-cookie';
 import Services from './services/Services';
-
-
-
-import Payment from './booking/Payment';
-
-// import ClubRoom from './rooms/ClubRoom';
-// import DeluxeRoom from './rooms/DeluxeRoom'
-// import SuperiorRoom from "./rooms/SuperiorRoom";
-// import ScrollToTop from "./rooms/ScrollToTop";
-//var isLogin = Cookies.get('id');
-//var isAdmin = Cookies.get('isAdmin');
-//
-
+import PlusKingRoom from './rooms/PlusKingRoom';
+import SuperiorTwinRoom from './rooms/SuperiorTwinRoom'
+import SuperiorKingRoom from "./rooms/SuperiorKingRoom";
+import ScrollToTop from "./rooms/ScrollToTop";
+import Payment from "./booking/Payment";
 
 var isLogin = localStorage.getItem("token");
 // Condition for authentication
@@ -116,7 +108,7 @@ export default function Routes(){
     <div>
       <AppProvider>
       <Router>
-        {/* <ScrollToTop/> */}
+        <ScrollToTop/>
         <Header/>
      
         <Switch>   
