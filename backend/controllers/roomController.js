@@ -37,7 +37,7 @@ const getAvailable = asyncHandler(async (req, res) => {
         Phongs.id not in ( \
         SELECT Phongs.id \
         FROM Phongs left join DonDatPhongs on Phongs.id=DonDatPhongs.idPhong \
-        WHERE ngayKT>=CURDATE()\
+        WHERE ngayKT>=CURDATE() AND ngayBD <= CURDATE()\
         )",
         {
             type: sequelize.QueryTypes.SELECT,
