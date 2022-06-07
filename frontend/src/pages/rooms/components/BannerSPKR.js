@@ -1,7 +1,6 @@
 import Box from '@material-ui/core/Box'
-import MainBanner from '../img/mainBanner.jpg'
+import ImageBanner from '../imagesSPKR/plus-king.jpg'
 import { Card, CardMedia, Typography } from '@material-ui/core';
-
 
 
 export default function Banner() {
@@ -10,7 +9,7 @@ export default function Banner() {
                 <Box sx={{ position: 'relative' , height: 900}}>
                     <CardMedia
                         component="img"
-                        image={MainBanner}
+                        image={ImageBanner}
                     />
                     <Box
                         sx={{
@@ -24,7 +23,7 @@ export default function Banner() {
                         }}
                     >
                         <Typography variant="h3">ROOMS</Typography>
-                        <Typography variant="h1">Hotel Rooms</Typography>
+                        <Typography variant="h1">Superior Plus King Room</Typography>
                     </Box>
                 </Box>
             </Card>

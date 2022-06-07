@@ -125,6 +125,9 @@ insert into LoaiPhongs(id,Ten,image,DonGia) values (3,'Superior Plus King Room',
 insert into Phongs(id,GhiChu) values (1,n'Looking out across magnificent panoramic views of Saigon, this well-appointed 38 sqm room offers the perfect balance of privacy and luxury.');
 insert into Phongs(id,GhiChu) values (2,n'Ideal for both business and leisure travellers, timeless luxury and functional amenities unite, all with a stunning view of the city.');
 insert into Phongs(id,GhiChu) values (3,n'Superior Plus King rooms offer exclusive space to relax, along with stunning views of cosmopolitan Saigon.');
+insert into Phongs(id,GhiChu,idLoaiPhong) values (4,n'Looking out across magnificent panoramic views of Saigon, this well-appointed 38 sqm room offers the perfect balance of privacy and luxury.',3);
+insert into Phongs(id,GhiChu,idLoaiPhong) values (5,n'Looking out across magnificent panoramic views of Saigon, this well-appointed 38 sqm room offers the perfect balance of privacy and luxury.',3);
+insert into Phongs(id,GhiChu,idLoaiPhong) values (6,n'Looking out across magnificent panoramic views of Saigon, this well-appointed 38 sqm room offers the perfect balance of privacy and luxury.',3);
 
 update Phongs set idLoaiPhong = 1 where id=1;
 update Phongs set idLoaiPhong = 2 where id=2;

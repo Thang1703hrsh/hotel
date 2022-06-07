@@ -16,6 +16,9 @@ import AppProvider from '../components/AppProvider';
 import Booking from './booking/Booking'
 import Cookies from 'js-cookie';
 import Services from './services/Services';
+
+
+=======
 import Payment from './booking/Payment';
 
 // import ClubRoom from './rooms/ClubRoom';
@@ -25,6 +28,7 @@ import Payment from './booking/Payment';
 //var isLogin = Cookies.get('id');
 //var isAdmin = Cookies.get('isAdmin');
 //
+
 
 var isLogin = localStorage.getItem("token");
 // Condition for authentication
@@ -121,9 +125,9 @@ export default function Routes(){
           <ProtectedRoute exact path="/signin" component={SignIn} />
           <ProtectedRoute exact path="/services" component={Services} />
 
-          {/* <ProtectedRoute exact path ="/ClubRoom" component = {ClubRoom} />
-          <ProtectedRoute exact path ="/DeluxeRoom" component = {DeluxeRoom} />
-          <ProtectedRoute exact path ="/SuperiorRoom" component = {SuperiorRoom} /> */}
+          <ProtectedRoute exact path ="/PlusKingRoom" component = {PlusKingRoom} />
+          <ProtectedRoute exact path ="/SuperiorTwinRoom" component = {SuperiorTwinRoom} />
+          <ProtectedRoute exact path ="/SuperiorKingRoom" component = {SuperiorKingRoom} />
           <ProtectedRoute exact path="/"component={Home} />
           <ProtectedRoute exact path="/booking" component={Booking} />
           <ProtectedRoute exact path="/payment" component={Payment} />
