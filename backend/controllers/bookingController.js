@@ -94,9 +94,33 @@ const paidBooking = asyncHandler(async (req, res) => {
     )
 
 })
+
+const paidAllBooking = asyncHandler(async (req, res) => {
+    const bookingID = req.body.id
+    models.DonDatPhongs.update({
+        //today is the date of payment
+        ngayTT:new Date(),
+    },{
+        where:{
+        }
+    }).then(()=>{
+        res.status(200).json({
+            success:true,
+        })
+    }
+    ).catch(err=>{
+        res.status(400).json({
+            success:false,
+            error:err,
+        })
+    }
+    )
+
+})
 //export
 module.exports = {
     createBooking,
     unpaidBooking,
     paidBooking,
+    paidAllBooking,
 }

@@ -51,12 +51,14 @@ export default function RoomPaymentInfo(props) {
             }
         }).then(res => {
             alert("Thanks for using service, the email was sent to confirm!")
+            window.location.reload()
         }).catch(err => {
             alert("Unexpected error Occur!")
         })
+        
     }
     function handleAllClick() {
-        instance.post("/api/booking/payment", {
+        instance.post("/api/booking/payment/all", {
             id: '*'
         }, {
             headers: {
@@ -64,6 +66,7 @@ export default function RoomPaymentInfo(props) {
             }
         }).then(res => {
             alert("Thanks for using service, the email was sent to confirm!")
+            window.location.reload()
         }).catch(err => {
             alert("Unexpected error Occur!")
         })
@@ -92,14 +95,22 @@ export default function RoomPaymentInfo(props) {
                         </ThemeProvider>
                     </Grid>
                 </Grid>
+              
+                        
+                    
+                
             )
         })}
-    
-        <ThemeProvider theme={theme}>
-            <Button variant="contained" color="buttonColor" id="proceed-all" onClick={() => handleAllClick()}>
-                Proceed all<em>{totalValue === undefined ? "" : "   " + totalValue}</em>$
-            </Button>
-        </ThemeProvider>
+        {() => {
+            if(payment !== 0) return (
+                            <ThemeProvider theme={theme}>
+                            <Button variant="contained" color="buttonColor" id="proceed-all" onClick={() => handleAllClick()}>
+                                Proceed all<em>{totalValue === undefined ? "" : "   " + totalValue}</em>$
+                            </Button>
+                            </ThemeProvider>
+        )}}
+        
+        
     </div>
     )
 }
