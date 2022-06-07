@@ -68,10 +68,9 @@ export default function RoomInfo(props) {
             alert("Please input check-out date after check-in date");
             return;
         }
-        booking.name = val.name;
-        booking.image = val.picture;
-        booking.price = val.price;
         booking.roomId = val.id;
+        booking.startDate = moment(booking.checkIn);
+        booking.endDate = moment(booking.checkOut);
         var userToken = localStorage.getItem("token");
         console.log(booking);
         if(userToken === undefined) {
@@ -80,11 +79,9 @@ export default function RoomInfo(props) {
         }
         
         //booking.token = localStorage.getItem("token");
-        booking.startDate = moment(booking.checkIn);
-        booking.endDate = moment(booking.checkOut);
-        instance.post("/api/booking", headers={
+        instance.post("/api/booking", {headers: {
             Authorization: "Bearer " + userToken
-        },
+        }},
             booking
             /*
             {
@@ -92,6 +89,8 @@ export default function RoomInfo(props) {
                 image: string
                 price: numeric,
                 roomId: string
+                startDate: string,
+                endDate: string,
             }
             */
         ).then(res => {
