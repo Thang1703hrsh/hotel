@@ -41,11 +41,10 @@ const register = asyncHandler(async (req, res) => {
     const newAccount = await models.Accounts.create({
         id,
         _password:hashedPassword,
-        cmnd:cmnd,
     })
     //Create Khach
     const newKhach = await models.Khachs.create({
-        cmnd:id,
+        id:cmnd,
         LoaiKhach:country,
 
     })

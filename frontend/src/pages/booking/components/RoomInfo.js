@@ -35,6 +35,7 @@ export default function RoomInfo(props) {
         image: '',
         price: '',
         authenticationId: '',
+        roomId: '',
     }
     const [room, setRoom] = useState([]);
     useEffect(() => {
@@ -70,8 +71,39 @@ export default function RoomInfo(props) {
         booking.name = val.name;
         booking.image = val.picture;
         booking.price = val.price;
+        booking.roomId = val.id;
+        var userToken = localStorage.getItem("token");
+        console.log(booking);
+        if(userToken === undefined) {
+            alert("Please log in!")
+            window.location.href = "/login";
+        }
+        
+        //booking.token = localStorage.getItem("token");
+        booking.startDate = moment(booking.checkIn);
+        booking.endDate = moment(booking.checkOut);
+        instance.post("/api/booking", headers={
+            Authorization: "Bearer " + userToken
+        },
+            booking
+            /*
+            {
+                name: string,
+                image: string
+                price: numeric,
+                roomId: string
+            }
+            */
+        ).then(res => {
+            // If success
+
+        }).catch(err => {
+            // If error
+
+        })
         localStorage.setItem('booking', JSON.stringify(booking));
-        window.location.href= "/payment";
+        
+        //window.location.href= "/payment";
     }
     return (
         <div>
@@ -98,7 +130,7 @@ export default function RoomInfo(props) {
                         </Grid>
                         <Grid item md={2} direction='column' alignSelf='center'>
                             <Typography variant="inherit">From {val.price}$</Typography>
-                            <ThemeProvider theme={theme}><Button variant="contained" color="buttonColor" onClick={() => handleClick(val)}>Select room</Button></ThemeProvider>
+                            <ThemeProvider theme={theme}><Button variant="contained" color="buttonColor" id={val.id} onClick={() => handleClick(val)}>Select room</Button></ThemeProvider>
                         </Grid>
                     </Grid>
                 )
