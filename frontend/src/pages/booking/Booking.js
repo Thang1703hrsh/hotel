@@ -61,7 +61,7 @@ export default function Booking(){
             </Grid>
 
             {/* Room Info */}
-            <RoomInfo searchItem={searchItem} checkIn={valueCheckIn} checkOut={valueCheckOut}/>
+            <RoomInfo searchItem={searchItem} checkIn={valueCheckIn} checkOut={valueCheckOut} marginTop={30}/>
         </Container>
     );
     

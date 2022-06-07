@@ -115,16 +115,17 @@ export default function RoomInfo(props) {
                 }
             }).map((val, key) => {
                 return (
-                    <Grid container sx={{borderBottom: 1}}>
-                        <Grid item md={2}>
+                    <Grid container sx={{borderBottom: 0, marginTop: 3}}>
+                        <Grid item md={1.5}>
                             <CardMedia 
                                 component="img"
-                                image={val.picture}
+                                image={val.image}
                                 alt="image"
+                                sx={{width: 142, height: 115}}
                             />
                         </Grid>
                         <Grid item md={8} sx={{textAlign: 'left', marginTop: 1}}>
-                            <Typography variant="h5" sx={{marginLeft: 1}}>{val.name}</Typography>
+                            <Typography variant="h6" sx={{marginLeft: 1}}>{val.name}</Typography>
                             <Typography variant="inherit" sx={{marginLeft: 1}}>{val.description}</Typography>
                         </Grid>
                         <Grid item md={2} direction='column' alignSelf='center'>
