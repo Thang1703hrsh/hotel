@@ -20,7 +20,9 @@ const protect = asyncHandler(async (req, res, next) => {
       const decoded = jwt.verify(token, process.env.JWT_SECRET)
 
       // Get user from the token
-      req.user = await models.User.findByPk(decoded.id)
+      //log id
+      console.log(decoded.id)
+      req.account = await models.Accounts.findByPk(decoded.id)
 
       next()
     } catch (error) {
