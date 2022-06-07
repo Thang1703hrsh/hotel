@@ -43,9 +43,15 @@ const register = asyncHandler(async (req, res) => {
         _password:hashedPassword,
         cmnd:cmnd,
     })
+    //check country in {0,1}
+    if(country!=0&&country!=1){
+        res.status(400)
+        throw new Error('Country is not valid')
+    }
+
     //Create Khach
     const newKhach = await models.Khachs.create({
-        cmnd:id,
+        id:cmnd,
         LoaiKhach:country,
 
     })

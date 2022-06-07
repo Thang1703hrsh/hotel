@@ -31,12 +31,31 @@ const  getAll= asyncHandler(async (req, res) => {
 // @ route GET /api/rooms/available
 // @ access Public
 const getAvailable = asyncHandler(async (req, res) => {
-    data = await sequelize.query("select * from Phongs where Phongs.id not in ( SELECT Phongs.id FROM Phongs left join DonDatPhongs on Phongs.id=DonDatPhongs.idPhong WHERE ngayKT>=CURDATE());",
+    data = await sequelize.query("select Phongs.id,LoaiPhongs.Ten,LoaiPhongs.DonGia,LoaiPhongs.image \
+    from Phongs left join LoaiPhongs on Phongs.idLoaiPhong = LoaiPhongs.id \
+    where \
+        Phongs.id not in ( \
+        SELECT Phongs.id \
+        FROM Phongs left join DonDatPhongs on Phongs.id=DonDatPhongs.idPhong \
+        WHERE ngayKT>=CURDATE()\
+        )",
         {
             type: sequelize.QueryTypes.SELECT,
-            mapToModel: true,
+            mapToModel: false,
         }
     )
+    // change attribute Ten to name
+    data.forEach(element => {
+        element.name = element.Ten
+        delete element.Ten
+    })
+    // change attribute DonGia to price
+    data.forEach(element => {
+        element.price = element.DonGia
+        delete element.DonGia
+    }
+    )
+    
     res.status(200).json(data)
 })
 module.exports = {

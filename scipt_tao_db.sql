@@ -74,7 +74,7 @@ create table Accounts
 	id nvarchar(15),
 	CMNDKhach nvarchar(15),
 	primary key (id),
-
+	_password varchar(100),
     createdAt DATETIME DEFAULT CURRENT_TIMESTAMP,
     updatedAt DATETIME ON UPDATE CURRENT_TIMESTAMP
 );
@@ -114,6 +114,10 @@ alter table Khachs
 add constraint FK_Khachs_Khachs
 foreign key (idQuanLy) references Khachs(id);
 
+alter table Accounts 
+add constraint FK_ACcounts_Khachs
+foreign key (CMNDKhach) references Khachs(id);
+
 insert into LoaiPhongs(id,Ten,image,DonGia) values (1,'Superior King Room','https://s3-ap-southeast-1.amazonaws.com/blog-ph/wp-content/uploads/2016/08/12091211/hotel-room-marina-bay-sands.jpg?fbclid=IwAR2THjgS5DDepCHxF79YDpzP81m3osoUmdkVpnhG156hZ9HKm2y_3Ifp4HQ',100);
 insert into LoaiPhongs(id,Ten,image,DonGia) values (2,'Superior Twin Room','https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Hotel-room-renaissance-columbus-ohio.jpg/1024px-Hotel-room-renaissance-columbus-ohio.jpg?fbclid=IwAR0RrI8LLOCUrqcIBZLUF2FSB7E33oIT858L_9mcMlweE3D8DunNnHPL8VA',200);
 insert into LoaiPhongs(id,Ten,image,DonGia) values (3,'Superior Plus King Room','https://imageio.forbes.com/specials-images/imageserve/5cdb058a5218470008b0b00f/Nobu-Ryokan-Malibu/0x0.jpg?format=jpg&height=1009&width=2000&fbclid=IwAR0cVNxU2gfPwe_k3kOPBp6itzEfGTieiXmPjBsqzv-2d-1QQ0m0WihPpSo',300);
@@ -125,3 +129,6 @@ insert into Phongs(id,GhiChu) values (3,n'Superior Plus King rooms offer exclusi
 update Phongs set idLoaiPhong = 1 where id=1;
 update Phongs set idLoaiPhong = 2 where id=2;
 update Phongs set idLoaiPhong = 3 where id=3;
+
+insert into LoaiKhachs(id, HeSo) values(0,1.0);
+insert into LoaiKhachs(id, HeSo) values(1,1.5);
