@@ -18,7 +18,7 @@ import Cookies from 'js-cookie';
 import Services from './services/Services';
 
 
-=======
+
 import Payment from './booking/Payment';
 
 // import ClubRoom from './rooms/ClubRoom';
