@@ -18,6 +18,8 @@ const theme= createTheme({
 })
 
 export default function RoomPaymentInfo(props) {
+    const [payment,setPayment] = useState([])
+    const [totalValue, setTotalValue] = useState()
 
     useEffect(() => {   
         instance.get("/api/booking/unpaid", {
@@ -39,8 +41,7 @@ export default function RoomPaymentInfo(props) {
         })
     },[]);
 
-    const [payment,setPayment] = useState([])
-    const [totalValue, setTotalValue] = useState()
+
     //setTotalValue(totalValue === undefined ? "" : totalValue)
     function handleClick(val) {
         instance.post("/api/booking/payment", {
@@ -95,22 +96,13 @@ export default function RoomPaymentInfo(props) {
                         </ThemeProvider>
                     </Grid>
                 </Grid>
-              
-                        
-                    
-                
             )
         })}
-        {() => {
-            if(payment !== 0) return (
-                            <ThemeProvider theme={theme}>
-                            <Button variant="contained" color="buttonColor" id="proceed-all" onClick={() => handleAllClick()}>
-                                Proceed all<em>{totalValue === undefined ? "" : "   " + totalValue}</em>$
-                            </Button>
-                            </ThemeProvider>
-        )}}
-        
-        
+        <ThemeProvider theme={theme}>
+            <Button variant="contained" color="buttonColor" id="proceed-all" onClick={() => handleAllClick()}>
+                Proceed all<em>{totalValue === undefined ? "" : "   " + totalValue}</em>$
+            </Button>
+        </ThemeProvider>
     </div>
     )
 }

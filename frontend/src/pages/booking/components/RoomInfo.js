@@ -125,12 +125,12 @@ export default function RoomInfo(props) {
             */
         ).then(res => {
             // If success
-            alert("Succesfully booked ??????")
+            alert("Succesfully booked")
             window.location.href="/payment"
         }).catch(err => {
             // If error
 
-            alert("Unsuccesfully booked ??????")
+            alert("An undefined error occurred")
             console.log(err)
         
         })
