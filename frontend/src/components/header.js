@@ -179,7 +179,7 @@ const Header = (props) => {
                   { isLogin ?
                     <MenuItem
                       onClick={() => setAnchor(null)}
-                      onClick={() => handleSignOut()}
+                      // onClick={() => handleSignOut()}
                     >
                       <ListItemIcon>
                         <LockOpenIcon fontSize="large"/>
@@ -241,7 +241,7 @@ const Header = (props) => {
                   className={classes.phoneButton}
                   component={Link} to={'/adminAccount'}
                 >
-                  Manage Accounts
+                  Manage Payment
                 </Button>}
 
                 {isAdmin && <Button
@@ -267,9 +267,9 @@ const Header = (props) => {
 
               {isLogin && <Button
                   className={classes.phoneButton}
-                  component={Link} to={'/account'}
+                  component={Link} to={'/payment'}
                 >
-                  My Account
+                  My Payment
                 </Button>
               }
               

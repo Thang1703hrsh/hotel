@@ -1,7 +1,7 @@
 import { CardMedia, Typography } from "@material-ui/core";
 import { Grid, Box, Card } from "@material-ui/core";
-import ImageMR1 from "../imagesSPKR/MoreRoom1.png"
-import ImageMR2 from "../imagesSPKR/MoreRoom2.png"
+import ImageMR1 from "../imagesSPKR/plus-king.jpg"
+import ImageMR2 from "../imagesSPKR/twin.jpg"
 import IconCouch from '@mui/icons-material/Weekend'
 import IconWifi from '@mui/icons-material/Wifi'
 import IconCoffee from '@mui/icons-material/Coffee'

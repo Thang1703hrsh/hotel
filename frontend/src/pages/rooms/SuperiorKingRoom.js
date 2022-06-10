@@ -31,7 +31,7 @@ export default function SuperiorKingRoom() {
             <Main />
             <MainContent />
             {
-                Rooms.map(e => {
+                Rooms && Rooms.map(e => {
                     let Equips = [];
                     Equips = Services.find(s => s.name === e.name).services
                     console.log(Equips)
