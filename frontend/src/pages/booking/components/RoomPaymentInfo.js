@@ -2,10 +2,7 @@ import {CardMedia, Grid, Typography, Button} from '@mui/material'
 import {createTheme, ThemeProvider} from '@mui/material/styles';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
-import data from './mock_data.json';
-import Payment from '../Payment';
-import { Link } from 'react-router-dom';
-import moment from 'moment';
+
 
 const instance = axios.create({baseURL: 'http://localhost:5000'})
 const theme= createTheme({

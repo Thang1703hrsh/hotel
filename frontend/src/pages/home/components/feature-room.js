@@ -45,10 +45,9 @@ export default function FeatureRoom() {
             <Grid item xs={12} md={4} rowSpacing={1} height="100%" padding="1vh" component={Link} to='/ClubRoom' style={{textDecoration: 'none'}}>
             <Item >
                     <img width="100%" height='300vh' src= 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Hotel-room-renaissance-columbus-ohio.jpg/1024px-Hotel-room-renaissance-columbus-ohio.jpg' alt=''></img>
-                    <Typography padding="2vh 0" variant="h4" component="div" textAlign="center" sx={{ flexGrow: 1 }} height="100px" color="#080808"> Club Intercontinental Room</Typography>
+                    <Typography padding="2vh 0" variant="h4" component="div" textAlign="center" sx={{ flexGrow: 1 }} height="100px" color="#080808"> SUPERIOR TWIN ROOM</Typography>
                     <Typography padding="0 1vw" variant="body1" gutterBottom textAlign="left" color={textcolor} minHeight="35vh" maxHeight="70vh" paddingBottom="2vh">
-                        Club InterContinental rooms offer exclusive space to relax, along with stunning views of cosmopolitan Saigon. You'll also enjoy benefits like complimentary pressing service, complimentary Wi-Fi and local calls. These premium rooms include daily breakfasts at Club InterContinental Lounge or Market 39 restaurant,
-                        afternoon tea as well as signature cocktails at our exclusive Club InterContinental Lounge.
+                    Ideal for both business and leisure travellers, timeless luxury and functional amenities unite, all with a stunning view of the city.
                     </Typography>
                     <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 1, md: 1 }} height="40vh">
                         <Grid item xs={3}> <IconCouch style={{fontSize: "40px", color:"#080808"}} /> </Grid>
@@ -83,10 +82,9 @@ export default function FeatureRoom() {
             <Grid item xs={12} md={4} rowSpacing={1} height="100%" padding="1vh" component={Link} to='/SuperiorRoom' style={{textDecoration: 'none'}} >
                 <Item >
                     <img width="100%" height='300vh' src= 'https://s3-ap-southeast-1.amazonaws.com/blog-ph/wp-content/uploads/2016/08/12091211/hotel-room-marina-bay-sands.jpg' alt=''></img>
-                    <Typography padding="2vh 0" variant="h4" component="div" textAlign="center" sx={{ flexGrow: 1 }} height="100px" color="#080808"> Superior Room</Typography>
+                    <Typography padding="2vh 0" variant="h4" component="div" textAlign="center" sx={{ flexGrow: 1 }} height="100px" color="#080808"> SUPERIOR KING ROOM </Typography>
                     <Typography padding="0 1vw" variant="body1" gutterBottom textAlign="left" color={textcolor} minHeight="35vh" maxHeight="70vh" paddingBottom="2vh" >
-                        Looking out across magnificent panoramic views of Saigon, this well-appointed 38 sqm room offers the perfect balance of privacy and luxury. Combining classic design elements with modern technological amenities, our Superior rooms at 
-                        InterContinental Saigon Hotel include an expansive list of services and comforts for a premium travel experience.
+                    Looking out across magnificent panoramic views of Saigon, this well-appointed 38 sqm room offers the perfect balance of privacy and luxury.
                     </Typography>
                     <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 1, md: 1 }} height="40vh" >
                         <Grid item xs={3}> <IconKingBed style={{fontSize: "40px", color:"#080808"}} /> </Grid>
@@ -113,10 +111,9 @@ export default function FeatureRoom() {
             <Grid item xs={12} md={4} rowSpacing={1} height="100%" padding="1vh" component={Link} to='/DeluxeRoom' style={{textDecoration: 'none'}}>
                 <Item >
                     <img width="100%" height='300vh' src= 'https://imageio.forbes.com/specials-images/imageserve/5cdb058a5218470008b0b00f/Nobu-Ryokan-Malibu/0x0.jpg?format=jpg&height=1009&width=2000' alt=''></img>
-                    <Typography padding="2vh 0" variant="h4" component="div" textAlign="center" sx={{ flexGrow: 1 }} height="100px" color="#080808"> Deluxe King Room</Typography>
+                    <Typography padding="2vh 0" variant="h4" component="div" textAlign="center" sx={{ flexGrow: 1 }} height="100px" color="#080808"> SUPERIOR PLUS KING ROOM</Typography>
                     <Typography padding="0 1vw" variant="body1" gutterBottom textAlign="left" color={textcolor} minHeight="35vh" maxHeight="70vh" paddingBottom="2vh" >
-                        Ideal for both business and leisure travellers, timeless luxury and functional amenities unite, all with a stunning view of the city. 
-                        Take advantage of the 24-hour in-room dining service, laundry service and personal business centre, which includes an in-room telephone line and exclusive access to the fax and printer in the Business Centre at InterContinental Saigon Hotel.
+                    Superior Plus King rooms offer exclusive space to relax, along with stunning views of cosmopolitan Saigon.
                     </Typography>
                     <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 1, md: 1 }} height= "40vh">
                         <Grid item xs={3}> <IconKingBed style={{fontSize: "40px", color:"#080808"}} /> </Grid>
